@@ -884,29 +884,7 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/ProductCategories/{{id}}",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"ProductCategories",
-								"{{id}}"
-							],
-							"variable": [
-								{
-									"id": "72b57e00-e4d9-4e22-877b-9a3fc6fa988f",
-									"key": "id",
-									"value": "1",
-									"description": "The ID of the product category to retrieve"
-								}
-							]
-						}
+						"url": "https://api.cin7.com/api/v1/ProductCategories/23"
 					},
 					"response": []
 				},
@@ -961,62 +939,6 @@
 								}
 							]
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Product Category",
-					"id": "48a40cba-63ca-4543-823a-9e20944a3ce7",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"Name\": \"New Product Category\",\n  \"ParentId\": 0,\n  \"IsActive\": true,\n  \"CreatedDate\": \"2024-06-01T00:00:00Z\",\n  \"ModifiedDate\": \"2024-06-01T00:00:00Z\"\n}"
-						},
-						"url": "https://api.cin7.com/api/v1/ProductCategories"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Product Category",
-					"id": "0ffdcbfd-95c2-42e2-b290-22cfec01bc63",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n  {\n    \"Id\": 1,\n    \"Name\": \"Updated Product Category\",\n    \"ParentId\": 0,\n    \"IsActive\": true,\n    \"CreatedDate\": \"2024-06-01T00:00:00Z\",\n    \"ModifiedDate\": \"2024-06-02T00:00:00Z\"\n  }\n]"
-						},
-						"url": "https://api.cin7.com/api/v1/ProductCategories"
 					},
 					"response": []
 				}
