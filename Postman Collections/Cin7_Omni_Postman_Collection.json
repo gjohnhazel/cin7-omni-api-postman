@@ -20,34 +20,9 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
 							}
 						],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/Contacts/{id}",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"Contacts",
-								"{id}"
-							],
-							"variable": [
-								{
-									"id": "a0b35135-1f38-4091-a14d-cc6985b91738",
-									"key": "id",
-									"value": "1"
-								}
-							]
-						}
+						"url": "https://api.cin7.com/api/v1/Contacts/{id}"
 					},
 					"response": []
 				},
