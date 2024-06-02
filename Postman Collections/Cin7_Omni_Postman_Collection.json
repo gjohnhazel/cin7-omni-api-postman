@@ -749,29 +749,7 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/Branches/{{id}}",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"Branches",
-								"{{id}}"
-							],
-							"variable": [
-								{
-									"id": "8c45f1c3-d126-4e68-a7ff-28a42c16716c",
-									"key": "id",
-									"value": "1",
-									"description": "The ID of the branch to retrieve"
-								}
-							]
-						}
+						"url": "https://api.cin7.com/api/v1/Branches/3"
 					},
 					"response": []
 				},
@@ -887,6 +865,163 @@
 				}
 			],
 			"id": "c74995a2-9fb2-4fb3-b2b0-49d36d73d5d3"
+		},
+		{
+			"name": "Product Categories",
+			"item": [
+				{
+					"name": "Get Product Category by ID",
+					"id": "b7a6193e-937e-464a-8492-ffdeedd8bef9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/ProductCategories/{{id}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"ProductCategories",
+								"{{id}}"
+							],
+							"variable": [
+								{
+									"id": "72b57e00-e4d9-4e22-877b-9a3fc6fa988f",
+									"key": "id",
+									"value": "1",
+									"description": "The ID of the product category to retrieve"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Categories List",
+					"id": "7fe161e7-c555-40b6-a894-b7a2678ffb65",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/ProductCategories?fields=*&where=&order=&page=1&rows=50",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"ProductCategories"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "*"
+								},
+								{
+									"key": "where",
+									"value": ""
+								},
+								{
+									"key": "order",
+									"value": ""
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "rows",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product Category",
+					"id": "48a40cba-63ca-4543-823a-9e20944a3ce7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"New Product Category\",\n  \"ParentId\": 0,\n  \"IsActive\": true,\n  \"CreatedDate\": \"2024-06-01T00:00:00Z\",\n  \"ModifiedDate\": \"2024-06-01T00:00:00Z\"\n}"
+						},
+						"url": "https://api.cin7.com/api/v1/ProductCategories"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product Category",
+					"id": "0ffdcbfd-95c2-42e2-b290-22cfec01bc63",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"Id\": 1,\n    \"Name\": \"Updated Product Category\",\n    \"ParentId\": 0,\n    \"IsActive\": true,\n    \"CreatedDate\": \"2024-06-01T00:00:00Z\",\n    \"ModifiedDate\": \"2024-06-02T00:00:00Z\"\n  }\n]"
+						},
+						"url": "https://api.cin7.com/api/v1/ProductCategories"
+					},
+					"response": []
+				}
+			],
+			"id": "f648199c-33d5-4a9f-8e1a-a29df9651261"
 		}
 	],
 	"auth": {
