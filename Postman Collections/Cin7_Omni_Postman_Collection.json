@@ -6,6 +6,207 @@
 	},
 	"item": [
 		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "Get Contact by ID",
+					"id": "7af10016-4de2-4eaf-963d-0314cc7f8326",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
+							}
+						],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/Contacts/{id}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Contacts",
+								"{id}"
+							],
+							"variable": [
+								{
+									"id": "a0b35135-1f38-4091-a14d-cc6985b91738",
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get List of Contacts",
+					"id": "17b486f9-0652-4e73-aee5-d2b8044e11d6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
+							}
+						],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/Contacts?fields=id,company,firstName,lastName&where=type='Customer'&order=createdDate ASC&page=1&rows=50",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Contacts"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "id,company,firstName,lastName"
+								},
+								{
+									"key": "where",
+									"value": "type='Customer'"
+								},
+								{
+									"key": "order",
+									"value": "createdDate ASC"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "rows",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Contacts",
+					"id": "cbe4b16a-cef8-45d5-a09c-07391256d8ec",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"type\": \"Customer\",\n    \"company\": \"New Customer Co.\",\n    \"firstName\": \"Alice\",\n    \"lastName\": \"Johnson\",\n    \"email\": \"alice@newcustomerco.com\",\n    \"phone\": \"(000) 987-6543\",\n    \"address1\": \"123 New St\",\n    \"city\": \"New City\",\n    \"state\": \"NC\",\n    \"postCode\": \"12345\",\n    \"country\": \"USA\"\n  }\n]"
+						},
+						"url": "https://api.cin7.com/api/v1/Contacts"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Contacts",
+					"id": "ac4cac5c-f615-4c3f-a2e8-2c1ff4f78fe4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"id\": 551,\n    \"type\": \"Customer\",\n    \"company\": \"Updated Customer Co.\",\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"email\": \"jane@updatedcustomerco.com\",\n    \"phone\": \"(000) 123-4567\",\n    \"address1\": \"456 Update St\",\n    \"city\": \"Update City\",\n    \"state\": \"UC\",\n    \"postCode\": \"54321\",\n    \"country\": \"USA\"\n  }\n]"
+						},
+						"url": "https://api.cin7.com/api/v1/Contacts"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Contact by ID",
+					"id": "f0f4a756-591b-462e-9c81-f27dae64fd22",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
+							}
+						],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/Contacts/{id}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Contacts",
+								"{id}"
+							],
+							"variable": [
+								{
+									"id": "56c302be-5748-4492-a1f6-86d8c4f3392f",
+									"key": "id",
+									"value": "551"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "5e05537a-e73d-45f8-93ee-be9bc57e4305"
+		},
+		{
 			"name": "SalesOrders",
 			"event": [
 				{
