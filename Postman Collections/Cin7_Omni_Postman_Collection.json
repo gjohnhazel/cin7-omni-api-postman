@@ -399,10 +399,6 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
 							}
 						],
 						"body": {
@@ -572,7 +568,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": "https://api.cin7.com/api/v1/Contacts/{id}"
+						"url": "https://api.cin7.com/api/v1/Contacts/551"
 					},
 					"response": []
 				},
@@ -944,6 +940,75 @@
 				}
 			],
 			"id": "f648199c-33d5-4a9f-8e1a-a29df9651261"
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get Product by ID",
+					"id": "ecc798ca-d6d0-43b1-88cd-15b37b346f1a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "api.cin7.com/api/v1/Products/10"
+					},
+					"response": []
+				},
+				{
+					"name": "Get List of Products",
+					"id": "8d042388-281c-440d-a3c2-9e6c184a1074",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "api.cin7.com/api/v1/Products?page=1&rows=50",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Products"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "where",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "rows",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "763dec2b-a57b-42e4-94df-5c883f8a405a"
 		}
 	],
 	"auth": {
