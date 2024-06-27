@@ -184,7 +184,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?page=1&rows=200&where=stage='Dispatched'",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=stage='Dispatched'",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -211,17 +211,9 @@
 									"disabled": true
 								},
 								{
-									"key": "page",
-									"value": "1"
-								},
-								{
 									"key": "fields",
 									"value": "Id,OrderNumber,CreatedOn,Status",
 									"disabled": true
-								},
-								{
-									"key": "rows",
-									"value": "200"
 								},
 								{
 									"key": "where",
