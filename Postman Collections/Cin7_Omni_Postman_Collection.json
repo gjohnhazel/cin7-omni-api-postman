@@ -119,6 +119,120 @@
 					"response": []
 				},
 				{
+					"name": "SalesOrders where Stage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>ID</th>",
+									"        <th>Created Date</th>",
+									"        <th>Modified Date</th>",
+									"        <th>First Name</th>",
+									"        <th>Last Name</th>",
+									"        <th>Email</th>",
+									"        <th>Phone</th>",
+									"        <th>Delivery City</th>",
+									"        <th>Delivery Country</th>",
+									"        <th>Total</th>",
+									"    </tr>",
+									"    ",
+									"    {{#each response}}",
+									"        <tr id=row_{{@key}}>",
+									"            <td>{{id}}</td>",
+									"            <td>{{createdDate}}</td>",
+									"            <td>{{modifiedDate}}</td>",
+									"            <td>{{firstName}}</td>",
+									"            <td>{{lastName}}</td>",
+									"            <td>{{email}}</td>",
+									"            <td>{{phone}}</td>",
+									"            <td>{{deliveryCity}}</td>",
+									"            <td>{{deliveryCountry}}</td>",
+									"            <td>{{total}}</td>",
+									"        </tr>",
+									"    {{/each}}",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "f393dc16-ddce-4f49-ad6d-59e18f8b024b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?page=1&rows=200&where=stage='Dispatched'",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"SalesOrders"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "\"CreatedOn ge 2024-04-14 and CreatedOn le 2024-04-15\"",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "CreatedOn desc",
+									"description": "\n",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "fields",
+									"value": "Id,OrderNumber,CreatedOn,Status",
+									"disabled": true
+								},
+								{
+									"key": "rows",
+									"value": "200"
+								},
+								{
+									"key": "where",
+									"value": "stage='Dispatched'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get Sales Order",
 					"event": [
 						{
