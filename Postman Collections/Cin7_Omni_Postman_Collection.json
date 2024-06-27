@@ -184,7 +184,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?page=1&rows=200",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders/https://api.cin7.com/api/v1/SalesOrders/",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -194,7 +194,14 @@
 							"path": [
 								"api",
 								"v1",
-								"SalesOrders"
+								"SalesOrders",
+								"https:",
+								"",
+								"api.cin7.com",
+								"api",
+								"v1",
+								"SalesOrders",
+								""
 							],
 							"query": [
 								{
@@ -211,17 +218,9 @@
 									"disabled": true
 								},
 								{
-									"key": "page",
-									"value": "1"
-								},
-								{
 									"key": "fields",
 									"value": "Id,OrderNumber,CreatedOn,Status",
 									"disabled": true
-								},
-								{
-									"key": "rows",
-									"value": "200"
 								}
 							]
 						}
