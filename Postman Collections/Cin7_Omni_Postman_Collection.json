@@ -119,7 +119,7 @@
 					"response": []
 				},
 				{
-					"name": "SalesOrders for a Channel",
+					"name": "SalesOrder Line Items for Costco Channel",
 					"event": [
 						{
 							"listen": "test",
