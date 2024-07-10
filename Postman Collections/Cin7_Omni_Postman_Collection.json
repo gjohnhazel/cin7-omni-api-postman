@@ -183,6 +183,10 @@
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"company\": \"Costco\",\n        \"lineItems\": [\n            {\n                \"styleCode\": \"Ib/500/Syn/Bl/Bar\",\n            }\n        ]\n    }\n]\n"
+						},
 						"url": {
 							"raw": "https://api.cin7.com/api/v1/SalesOrders?page=1&rows=200",
 							"protocol": "https",
