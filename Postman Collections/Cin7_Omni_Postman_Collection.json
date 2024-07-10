@@ -185,10 +185,10 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    {\n        \"company\": \"Costco\",\n        \"lineItems\": [\n            {\n                \"styleCode\": \"Ib/500/Syn/Bl/Bar\",\n            }\n        ]\n    }\n]\n"
+							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?page=1&rows=200",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?rows=200&where=company='Costco'&page=1&fields=lineItems,Id,InvoiceDate,InvoiceNumber",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -215,10 +215,6 @@
 									"disabled": true
 								},
 								{
-									"key": "page",
-									"value": "1"
-								},
-								{
 									"key": "fields",
 									"value": "Id,OrderNumber,CreatedOn,Status",
 									"disabled": true
@@ -226,6 +222,18 @@
 								{
 									"key": "rows",
 									"value": "200"
+								},
+								{
+									"key": "where",
+									"value": "company='Costco'"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "fields",
+									"value": "lineItems,Id,InvoiceDate,InvoiceNumber"
 								}
 							]
 						}
