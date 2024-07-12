@@ -310,7 +310,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?rows=200&where=company='Costco'&page=1&fields=lineItems,Id,InvoiceDate,InvoiceNumber",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?rows=200&where=Total>2400&page=5",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -347,15 +347,11 @@
 								},
 								{
 									"key": "where",
-									"value": "company='Costco'"
+									"value": "Total>2400"
 								},
 								{
 									"key": "page",
-									"value": "1"
-								},
-								{
-									"key": "fields",
-									"value": "lineItems,Id,InvoiceDate,InvoiceNumber"
+									"value": "5"
 								}
 							]
 						}
