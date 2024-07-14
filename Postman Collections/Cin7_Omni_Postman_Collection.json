@@ -1014,6 +1014,18 @@
 						"header": []
 					},
 					"response": []
+				},
+				{
+					"name": "Create Sales Order",
+					"id": "283e186c-7c74-4d5c-a351-a218f53737e1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			],
 			"id": "09396e23-1f88-4b0d-9b92-4c5a96d2ee0e"
