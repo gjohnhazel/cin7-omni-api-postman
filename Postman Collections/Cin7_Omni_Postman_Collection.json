@@ -1035,7 +1035,27 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=reference='JHAZ609-1'",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"SalesOrders"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "reference='JHAZ609-1'"
+								}
+							]
+						}
 					},
 					"response": []
 				},
