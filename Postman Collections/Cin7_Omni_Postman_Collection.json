@@ -1060,6 +1060,38 @@
 					"response": []
 				},
 				{
+					"name": "Get Sales Order by ID",
+					"id": "beca9fa9-0598-4597-abb3-db4b366a820a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=reference='JHAZ609-1'",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"SalesOrders"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "reference='JHAZ609-1'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Update Sales Order",
 					"id": "95e320de-2ee1-42a7-adbb-8ab783d6c69c",
 					"protocolProfileBehavior": {
