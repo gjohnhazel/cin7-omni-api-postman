@@ -465,7 +465,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Sales Order",
+					"name": "Get Sales Order based on location",
 					"event": [
 						{
 							"listen": "test",
