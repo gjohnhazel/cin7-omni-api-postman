@@ -1165,7 +1165,91 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=Company='Best Buy USA' OR DeliveryFirstName='Best Buy USA' OR Company='Best Buy USA' OR BillingCompany='Best Buy Purchasing LLC'",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"SalesOrders"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "Company='Best Buy USA' OR DeliveryFirstName='Best Buy USA' OR Company='Best Buy USA' OR BillingCompany='Best Buy Purchasing LLC'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Costco Sales Orders",
+					"id": "83dee012-dd86-453b-a6c4-bee515edac3c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=Company='Costco'",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"SalesOrders"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "Company='Costco'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Texas Sales Orders",
+					"id": "37f3b104-83a4-4268-a472-44e15ee2b4d0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=DeliveryState='Texas'",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"SalesOrders"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "DeliveryState='Texas'"
+								}
+							]
+						}
 					},
 					"response": []
 				}
