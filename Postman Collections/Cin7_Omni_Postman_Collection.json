@@ -1231,7 +1231,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=DeliveryState='Texas'",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=Company='Costco' AND DeliveryState='TX'",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -1246,7 +1246,7 @@
 							"query": [
 								{
 									"key": "where",
-									"value": "DeliveryState='Texas'"
+									"value": "Company='Costco' AND DeliveryState='TX'"
 								}
 							]
 						}
