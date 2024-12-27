@@ -1222,7 +1222,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Texas Sales Orders",
+					"name": "Get Texas Costco Sales Orders",
 					"id": "37f3b104-83a4-4268-a472-44e15ee2b4d0",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
