@@ -1223,6 +1223,58 @@
 				},
 				{
 					"name": "Get Texas Costco Sales Orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "69e3910f-aef9-4675-8a3d-f47380a34dd8",
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>ID</th>",
+									"        <th>Created Date</th>",
+									"        <th>Modified Date</th>",
+									"        <th>Company</th>",
+									"        <th>Delivery City</th>",
+									"        <th>Delivery State</th>",
+									"        <th>Delivery Postal Code</th>",
+									"        <th>Total</th>",
+									"    </tr>",
+									"    ",
+									"    {{#each response}}",
+									"        <tr id=row_{{@key}}>",
+									"            <td>{{id}}</td>",
+									"            <td>{{createdDate}}</td>",
+									"            <td>{{modifiedDate}}</td>",
+									"            <td>{{company}}</td>",
+									"            <td>{{deliveryCity}}</td>",
+									"            <td>{{deliveryState}}</td>",
+									"            <td>{{deliveryPostalCode}}</td>",
+									"            <td>{{total}}</td>",
+									"        </tr>",
+									"    {{/each}}",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "37f3b104-83a4-4268-a472-44e15ee2b4d0",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
