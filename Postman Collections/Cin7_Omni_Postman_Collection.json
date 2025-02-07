@@ -74,7 +74,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?page=1&rows=200",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?page=1&fields=Id,OrderNumber,CreatedOn,Status&rows=200",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -106,8 +106,7 @@
 								},
 								{
 									"key": "fields",
-									"value": "Id,OrderNumber,CreatedOn,Status",
-									"disabled": true
+									"value": "Id,OrderNumber,CreatedOn,Status"
 								},
 								{
 									"key": "rows",
@@ -310,7 +309,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?rows=200&where=Total>2400&page=5",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?page=5&rows=200&lineItemsLIKEChiller",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -342,16 +341,16 @@
 									"disabled": true
 								},
 								{
+									"key": "page",
+									"value": "5"
+								},
+								{
 									"key": "rows",
 									"value": "200"
 								},
 								{
-									"key": "where",
-									"value": "Total>2400"
-								},
-								{
-									"key": "page",
-									"value": "5"
+									"key": "lineItemsLIKEChiller",
+									"value": null
 								}
 							]
 						}
@@ -424,7 +423,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=stage='Dispatched'",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?order=modifiedDate desc&where=stage='Dispatched'",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -445,10 +444,8 @@
 								},
 								{
 									"key": "order",
-									"value": "CreatedOn desc",
-									"description": "\n",
-									"type": "text",
-									"disabled": true
+									"value": "modifiedDate desc",
+									"description": "\n"
 								},
 								{
 									"key": "fields",
@@ -530,7 +527,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders/https://api.cin7.com/api/v1/SalesOrders/",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=DeliveryState='MN'\n",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -540,14 +537,7 @@
 							"path": [
 								"api",
 								"v1",
-								"SalesOrders",
-								"https:",
-								"",
-								"api.cin7.com",
-								"api",
-								"v1",
-								"SalesOrders",
-								""
+								"SalesOrders"
 							],
 							"query": [
 								{
@@ -567,6 +557,10 @@
 									"key": "fields",
 									"value": "Id,OrderNumber,CreatedOn,Status",
 									"disabled": true
+								},
+								{
+									"key": "where",
+									"value": "DeliveryState='MN'\n"
 								}
 							]
 						}
@@ -816,7 +810,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "https://api.cin7.com/api/v1/Contacts"
+						"url": "https://api.cin7.com/api/v1/Contacts/610"
 					},
 					"response": []
 				},
@@ -989,7 +983,27 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=stage='Dispatched'",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"SalesOrders"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "stage='Dispatched'"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -1045,7 +1059,27 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=DeliveryFirstName='john' AND DeliveryLastName='hazel' AND DeliveryAddress1='5452 county road 201' AND DeliveryCity='millersburg' AND DeliveryState='oh' AND DeliveryPostalCode='44654'\n",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"SalesOrders"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "DeliveryFirstName='john' AND DeliveryLastName='hazel' AND DeliveryAddress1='5452 county road 201' AND DeliveryCity='millersburg' AND DeliveryState='oh' AND DeliveryPostalCode='44654'\n"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -1090,26 +1124,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=reference='JHAZ609-1'",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "reference='JHAZ609-1'"
-								}
-							]
-						}
+						"url": "https://api.cin7.com/api/v1/SalesOrders/32584"
 					},
 					"response": []
 				},
@@ -1124,7 +1139,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n  {\n    \"id\": 23157,\n    \"dispatchedDate\": \"2024-01-25T01:02:00Z\",\n    \"trackingCode\": \"1234567890\",\n    \"logisticsCarrier\": \"FEDX\",\n    \"deliveryInstructions\": \"FedEx Freight-1234567890\",\n    \"internalComments\": \"FedEx Freight-1234567890\",\n    \"estimatedDeliveryDate\": \"2024-01-25T01:02:00Z\",\n    \"customFields\": {\n        \"orders_1002\": \"$225.11\"\n    }\n  }\n]",
+							"raw": "[\n  {\n    \"id\": 30445,\n    \"dispatchedDate\": \"2024-10-25T01:02:00Z\",\n    \"trackingCode\": \"1234567890\",\n    \"logisticsCarrier\": \"FEDX\",\n    \"deliveryInstructions\": \"FedEx Freight-1234567890\",\n    \"internalComments\": \"FedEx Freight-1234567890\",\n    \"estimatedDeliveryDate\": \"2024-01-25T01:02:00Z\",\n    \"customFields\": {\n        \"orders_1002\": \"$225.11\"\n    }\n  }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1146,14 +1161,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n  {\n    \"id\": 23157,\n    \"dispatchedDate\": \"2024-01-25T01:02:00Z\",\n    \"trackingCode\": \"1234567890\",\n    \"logisticsCarrier\": \"FEDX\",\n    \"deliveryInstructions\": \"FedEx Freight-1234567890\",\n    \"internalComments\": \"FedEx Freight-1234567890\",\n    \"estimatedDeliveryDate\": \"2024-01-25T01:02:00Z\",\n    \"customFields\": {\n        \"orders_1002\": \"$225.11\"\n    }\n  }\n]",
+							"raw": "[\n  {\n    \"id\": 30445,\n    \"dispatchedDate\": \"2024-10-25T01:02:00Z\",\n    \"trackingCode\": \"1234567890\",\n    \"logisticsCarrier\": \"FEDX\",\n    \"deliveryInstructions\": \"FedEx Freight-1234567890\",\n    \"internalComments\": \"FedEx Freight-1234567890\",\n    \"estimatedDeliveryDate\": \"2024-01-25T01:02:00Z\",\n    \"customFields\": {\n        \"orders_1002\": \"$225.11\"\n    }\n  }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "https://api.cin7.com/api/v1/SalesOrders"
+						"url": "https://api.cin7.com/api/v1/SalesOrders/30445"
 					},
 					"response": []
 				},
