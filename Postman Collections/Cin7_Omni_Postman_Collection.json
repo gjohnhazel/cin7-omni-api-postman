@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "3ecea70a-b1fc-4f11-9aa6-9c126b2cb01e",
 		"name": "Cin7",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.postman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -309,7 +309,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?page=5&rows=200&lineItemsLIKEChiller",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=\"CreatedOn ge 2025-01-01 and CreatedOn le 2025-12-15\"&order=CreatedOn desc&page=1&rows=200&lineItemsLIKEChiller",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -324,16 +324,14 @@
 							"query": [
 								{
 									"key": "where",
-									"value": "\"CreatedOn ge 2024-04-14 and CreatedOn le 2024-04-15\"",
-									"type": "text",
-									"disabled": true
+									"value": "\"CreatedOn ge 2025-01-01 and CreatedOn le 2025-12-15\"",
+									"type": "text"
 								},
 								{
 									"key": "order",
 									"value": "CreatedOn desc",
 									"description": "\n",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "fields",
@@ -342,7 +340,7 @@
 								},
 								{
 									"key": "page",
-									"value": "5"
+									"value": "1"
 								},
 								{
 									"key": "rows",
@@ -1786,7 +1784,7 @@
 	"auth": {
 		"type": "basic",
 		"basic": {
-			"password": "{{Cin7 API Key}}",
+			"password": "{{cin7_api_key}}",
 			"username": "IceBarrelUS"
 		}
 	},
@@ -1794,7 +1792,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "0637151a-4384-40cb-b94b-141dc471a1c7",
+				"id": "2732ce32-6dda-47b8-9ffb-fb980190332e",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1804,7 +1802,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "d745f1b2-8082-4cb4-9eaa-7e26ba123499",
+				"id": "820f2582-f312-45a7-8290-2295d59b59d8",
 				"type": "text/javascript",
 				"exec": [
 					""
