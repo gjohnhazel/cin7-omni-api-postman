@@ -309,7 +309,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createddate>='2025-01-01T00:00:00Z'&order=CreatedDate desc&page=1&rows=200&lineItemsLIKEChiller",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createddate>'2024-12-31T11:59:00Z'&order=CreatedDate ASC&fields=Id,CreatedDate,Status,LineItems(code,name,qty)",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -324,29 +324,26 @@
 							"query": [
 								{
 									"key": "where",
-									"value": "createddate>='2025-01-01T00:00:00Z'"
+									"value": "createddate>'2024-12-31T11:59:00Z'"
 								},
 								{
 									"key": "order",
-									"value": "CreatedDate desc",
+									"value": "CreatedDate ASC",
 									"description": "\n"
 								},
 								{
 									"key": "fields",
-									"value": "Id,OrderNumber,CreatedOn,Status",
-									"disabled": true
+									"value": "Id,CreatedDate,Status,LineItems(code,name,qty)"
 								},
 								{
 									"key": "page",
-									"value": "1"
+									"value": "1",
+									"disabled": true
 								},
 								{
 									"key": "rows",
-									"value": "200"
-								},
-								{
-									"key": "lineItemsLIKEChiller",
-									"value": null
+									"value": "200",
+									"disabled": true
 								}
 							]
 						}
