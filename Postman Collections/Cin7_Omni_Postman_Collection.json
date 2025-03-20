@@ -309,7 +309,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=\"CreatedOn ge 2025-01-01 and CreatedOn le 2025-12-15\"&order=CreatedOn desc&page=1&rows=200&lineItemsLIKEChiller",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createddate>='2025-01-01T00:00:00Z'&order=CreatedDate desc&page=1&rows=200&lineItemsLIKEChiller",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -324,14 +324,12 @@
 							"query": [
 								{
 									"key": "where",
-									"value": "\"CreatedOn ge 2025-01-01 and CreatedOn le 2025-12-15\"",
-									"type": "text"
+									"value": "createddate>='2025-01-01T00:00:00Z'"
 								},
 								{
 									"key": "order",
-									"value": "CreatedOn desc",
-									"description": "\n",
-									"type": "text"
+									"value": "CreatedDate desc",
+									"description": "\n"
 								},
 								{
 									"key": "fields",
