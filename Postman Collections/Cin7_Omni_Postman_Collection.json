@@ -1075,6 +1075,38 @@
 					"response": []
 				},
 				{
+					"name": "Find Sales Order By Info Copy",
+					"id": "799c6c06-a5fa-48f9-9afa-d7001116f092",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=DeliveryFirstName='john' AND DeliveryLastName='hazel' AND DeliveryAddress1='5452 county road 201' AND DeliveryCity='millersburg' AND DeliveryState='oh' AND DeliveryPostalCode='44654'\n",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"SalesOrders"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "DeliveryFirstName='john' AND DeliveryLastName='hazel' AND DeliveryAddress1='5452 county road 201' AND DeliveryCity='millersburg' AND DeliveryState='oh' AND DeliveryPostalCode='44654'\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Find Sales Order By Ref #",
 					"id": "4292fb81-a526-4be5-b7cb-79ca2f760116",
 					"protocolProfileBehavior": {
