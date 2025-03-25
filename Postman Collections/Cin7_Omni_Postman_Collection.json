@@ -1200,7 +1200,7 @@
 								}
 							}
 						},
-						"url": "https://api.cin7.com/api/v1/SalesOrders/30445"
+						"url": "https://api.cin7.com/api/v1/SalesOrders"
 					},
 					"response": []
 				},
