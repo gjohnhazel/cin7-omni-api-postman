@@ -1084,7 +1084,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=company='Amazon Seller Ice Barrel' AND createdDate<'2025-03-23T11:59:59Z' AND status='APPROVED' AND stage='Fully Picked'",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=company='Amazon Seller Ice Barrel' AND createdDate<'2025-03-23T11:59:59Z' AND status='APPROVED' AND stage='Fully Picked'&rows=250&page=2",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -1100,6 +1100,15 @@
 								{
 									"key": "where",
 									"value": "company='Amazon Seller Ice Barrel' AND createdDate<'2025-03-23T11:59:59Z' AND status='APPROVED' AND stage='Fully Picked'"
+								},
+								{
+									"key": "rows",
+									"value": "250"
+								},
+								{
+									"key": "page",
+									"value": "2",
+									"type": "text"
 								}
 							]
 						}
