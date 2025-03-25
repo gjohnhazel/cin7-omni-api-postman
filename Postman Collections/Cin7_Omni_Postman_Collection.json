@@ -1142,7 +1142,7 @@
 					"response": []
 				},
 				{
-					"name": "Update Sales Order - Close Status",
+					"name": "Update Sales Order - Close Status for Amazon FBA",
 					"id": "eb994166-00d0-41b5-944b-2a0be7447158",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1152,7 +1152,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n  {\n    \"id\": 30445,\n    \"dispatchedDate\": \"2024-10-25T01:02:00Z\",\n    \"trackingCode\": \"1234567890\",\n    \"logisticsCarrier\": \"FEDX\",\n    \"deliveryInstructions\": \"FedEx Freight-1234567890\",\n    \"internalComments\": \"FedEx Freight-1234567890\",\n    \"estimatedDeliveryDate\": \"2024-01-25T01:02:00Z\",\n    \"customFields\": {\n        \"orders_1002\": \"$225.11\"\n    }\n  }\n]",
+							"raw": "[\n  {\n    \"id\": 30676,\n    \"dispatchedDate\": \"2025-03-26T01:02:00Z\",\n    \"deliveryInstructions\": \"AMZN-FBA\",\n    \"estimatedDeliveryDate\": \"2025-03-31T01:02:00Z\"\n  }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
