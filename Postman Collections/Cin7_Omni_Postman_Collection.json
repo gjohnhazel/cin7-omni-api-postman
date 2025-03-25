@@ -74,7 +74,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?page=1&fields=Id,OrderNumber,CreatedOn,Status&rows=200",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?page=1&rows=10",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -106,11 +106,12 @@
 								},
 								{
 									"key": "fields",
-									"value": "Id,OrderNumber,CreatedOn,Status"
+									"value": "Id,OrderNumber,CreatedOn,Status",
+									"disabled": true
 								},
 								{
 									"key": "rows",
-									"value": "200"
+									"value": "10"
 								}
 							]
 						}
