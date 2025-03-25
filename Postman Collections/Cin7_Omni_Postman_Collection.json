@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "3ecea70a-b1fc-4f11-9aa6-9c126b2cb01e",
 		"name": "Cin7",
-		"schema": "https://schema.postman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -309,7 +309,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createddate>'2024-12-31T11:59:00Z'&order=CreatedDate ASC&fields=Id,CreatedDate,Status,LineItems(code,name,qty)",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createddate>'2024-12-31T23:59:59Z'&order=CreatedDate ASC&fields=Id,CreatedDate,Status,LineItems(code,name,qty)&page=5&rows=200",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -324,7 +324,7 @@
 							"query": [
 								{
 									"key": "where",
-									"value": "createddate>'2024-12-31T11:59:00Z'"
+									"value": "createddate>'2024-12-31T23:59:59Z'"
 								},
 								{
 									"key": "order",
@@ -337,13 +337,11 @@
 								},
 								{
 									"key": "page",
-									"value": "1",
-									"disabled": true
+									"value": "5"
 								},
 								{
 									"key": "rows",
-									"value": "200",
-									"disabled": true
+									"value": "200"
 								}
 							]
 						}
@@ -1144,7 +1142,7 @@
 					"response": []
 				},
 				{
-					"name": "Update Sales Order Copy",
+					"name": "Update Sales Order - Close Status",
 					"id": "eb994166-00d0-41b5-944b-2a0be7447158",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
