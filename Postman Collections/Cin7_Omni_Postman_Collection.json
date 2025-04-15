@@ -1117,6 +1117,38 @@
 					"response": []
 				},
 				{
+					"name": "Find Sales Order By Stage",
+					"id": "c8016e92-e2f1-4bd7-8c3d-ac827235d347",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createdDate<'2024-01-01T00:00:00Z' AND (Stage='Awaiting Payment' OR Stage='Declined' OR Stage='On Hold' OR Stage='Cancelled')\n",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"SalesOrders"
+							],
+							"query": [
+								{
+									"key": "where",
+									"value": "createdDate<'2024-01-01T00:00:00Z' AND (Stage='Awaiting Payment' OR Stage='Declined' OR Stage='On Hold' OR Stage='Cancelled')\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Find Sales Order By Ref #",
 					"id": "4292fb81-a526-4be5-b7cb-79ca2f760116",
 					"protocolProfileBehavior": {
