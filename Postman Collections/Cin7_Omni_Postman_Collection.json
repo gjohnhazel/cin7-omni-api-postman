@@ -1249,6 +1249,28 @@
 					"response": []
 				},
 				{
+					"name": "Update Sales Order Copy",
+					"id": "fdcd5cb4-2550-4044-8694-7c45c6ab4347",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"id\": 30445,\n    \"dispatchedDate\": \"2024-10-25T01:02:00Z\",\n    \"trackingCode\": \"1234567890\",\n    \"logisticsCarrier\": \"JH\",\n    \"deliveryInstructions\": \"Auto-fulfilled 04-15-25 cleanup\",\n    \"estimatedDeliveryDate\": \"2025-05-25T01:02:00Z\",\n    \"customFields\": {\n        \"orders_1002\": \"$200.00\"\n    }\n  }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.cin7.com/api/v1/SalesOrders"
+					},
+					"response": []
+				},
+				{
 					"name": "Update Sales Order - Close Status for Amazon FBA",
 					"id": "eb994166-00d0-41b5-944b-2a0be7447158",
 					"protocolProfileBehavior": {
