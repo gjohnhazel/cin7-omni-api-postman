@@ -668,12 +668,12 @@
 					"response": []
 				},
 				{
-					"name": "Contacts",
+					"name": "Get Customer / Contact by ID",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "c82329ec-d7d8-47ad-8a4b-c90a51686aed",
+								"id": "97e8112f-5921-453c-be3b-c3d7e400a8de",
 								"exec": [
 									"var template = `",
 									"<style type=\"text/css\">",
@@ -791,7 +791,8 @@
 									"",
 									"pm.visualizer.set(template, constructVisualizerPayload());"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -802,7 +803,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "https://api.cin7.com/api/v1/Contacts/610"
+						"url": "https://api.cin7.com/api/v1/Contacts/656"
 					},
 					"response": []
 				},
