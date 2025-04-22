@@ -9,114 +9,310 @@
 			"name": "Core Requests",
 			"item": [
 				{
-					"name": "SalesOrders",
-					"event": [
+					"name": "Customers / Contacts",
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
-								"exec": [
-									"var template = `",
-									"<style type=\"text/css\">",
-									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-									"    .tftable tr {background-color:#ffffff;}",
-									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-									"    .tftable tr:hover {background-color:#e0ffff;}",
-									"</style>",
-									"",
-									"<table class=\"tftable\" border=\"1\">",
-									"    <tr>",
-									"        <th>ID</th>",
-									"        <th>Created Date</th>",
-									"        <th>Modified Date</th>",
-									"        <th>First Name</th>",
-									"        <th>Last Name</th>",
-									"        <th>Email</th>",
-									"        <th>Phone</th>",
-									"        <th>Delivery City</th>",
-									"        <th>Delivery Country</th>",
-									"        <th>Total</th>",
-									"    </tr>",
-									"    ",
-									"    {{#each response}}",
-									"        <tr id=row_{{@key}}>",
-									"            <td>{{id}}</td>",
-									"            <td>{{createdDate}}</td>",
-									"            <td>{{modifiedDate}}</td>",
-									"            <td>{{firstName}}</td>",
-									"            <td>{{lastName}}</td>",
-									"            <td>{{email}}</td>",
-									"            <td>{{phone}}</td>",
-									"            <td>{{deliveryCity}}</td>",
-									"            <td>{{deliveryCountry}}</td>",
-									"            <td>{{total}}</td>",
-									"        </tr>",
-									"    {{/each}}",
-									"</table>",
-									"`;",
-									"",
-									"function constructVisualizerPayload() {",
-									"    return { response: pm.response.json() }",
-									"}",
-									"",
-									"pm.visualizer.set(template, constructVisualizerPayload());"
+							"name": "Create New Customer",
+							"id": "5bd243ec-f085-46ef-91ca-a1739d9a57a0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n    \"createdDate\": \"2024-05-21T20:59:16.5071517Z\",\n    \"modifiedDate\": \"2024-05-21T20:59:16.5071517Z\",\n    \"isActive\": true,\n    \"company\": \"John Hazel Test\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Hazel\",\n    \"email\": \"john@icebarrel.com\",\n    \"website\": \"icebarrel.com\", \n    \"phone\": \"7192135895\",\n    \"address1\": \"5452 County Road Two Zero One\",\n    \"address2\": null,\n    \"city\": \"Millersburg\",\n    \"state\": \"OH\",\n    \"postCode\": \"44654\",\n    \"country\": \"USA\",\n    \"postalAddress1\": \"5452 County Road 201\",\n    \"postalAddress2\": null,\n    \"postalCity\": \"Millersburg\",\n    \"postalState\": \"OH\",\n    \"postalPostCode\": \"44654\",\n    \"postalCountry\": \"USA\",\n    \"notes\": \"Sample client contact.\",\n    \"priceColumn\": \"Tier18USD\",\n    \"integrationRef\": \"JH-IB-DEALER-INTEGRATION\",\n    \"type\": \"Customer\"\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://api.cin7.com/api/v1/Contacts"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Contacts",
+							"id": "bdaca1da-fa14-4822-8d66-8a3f123de123",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
 								],
-								"type": "text/javascript"
-							}
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"id\": 551,\n    \"type\": \"Customer\",\n    \"accountNumber\": \"123456\",\n    \"billingId\": 100,\n    \"billingCompany\": \"Acme Billing Co.\",\n    \"accountsFirstName\": \"John\",\n    \"accountsLastName\": \"Doe\",\n    \"billingEmail\": \"billing@acme.com\",\n    \"accountsPhone\": \"(000) 123-4567\",\n    \"billingCostCenter\": \"CostCenter1\",\n    \"costCenter\": \"CostCenter2\",\n    \"priceColumn\": \"Retail\",\n    \"percentageOff\": 10,\n    \"paymentTerms\": \"Net 30\",\n    \"taxStatus\": \"Taxable\",\n    \"taxNumber\": \"TAX123456\",\n    \"creditLimit\": 5000.00,\n    \"onHold\": false,\n    \"group\": \"GroupA\",\n    \"subGroup\": \"SubGroupA\",\n    \"stages\": \"Stage1\",\n    \"accountingIntegrationId\": {\n      \"xero\": \"XERO12345\",\n      \"quickBooksOnline\": \"QBO12345\",\n      \"quickBooksDesktop\": \"QBD12345\"\n    },\n    \"isActive\": true,\n    \"company\": \"Acme Corporation\",\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"jobTitle\": \"Managing Director\",\n    \"email\": \"jane@acmecorpation.com\",\n    \"website\": \"www.acmecorpation.com\",\n    \"phone\": \"(000) 123-4567\",\n    \"fax\": \"(000) 123-4567\",\n    \"mobile\": \"(000) 123-4567\",\n    \"address1\": \"1600 Amphitheatre Pkwy\",\n    \"address2\": \"Suite 100\",\n    \"city\": \"Mountain View\",\n    \"state\": \"CA\",\n    \"postCode\": \"94043\",\n    \"country\": \"USA\",\n    \"postalAddress1\": \"Postal Address Line 1\",\n    \"postalAddress2\": \"Postal Address Line 2\",\n    \"postalCity\": \"Postal City\",\n    \"postalPostCode\": \"Postal Code\",\n    \"postalState\": \"Postal State\",\n    \"postalCountry\": \"Postal Country\",\n    \"notes\": \"Sample client contact.\",\n    \"integrationRef\": \"MY-INTEGRATION-REF\",\n    \"secondaryContacts\": [\n      {\n        \"id\": 1,\n        \"company\": \"Bob's Company\",\n        \"firstName\": \"Bob\",\n        \"lastName\": \"Joans\",\n        \"jobTitle\": \"Freelance Consultant\",\n        \"email\": \"bob@acmecorpation.com\",\n        \"mobile\": \"(000) 987-6543\",\n        \"phone\": \"(000) 987-6543\"\n      },\n      {\n        \"id\": 2,\n        \"company\": null,\n        \"firstName\": \"Lara\",\n        \"lastName\": \"Croft\",\n        \"jobTitle\": \"Accountant\",\n        \"email\": \"lara@acmecorpation.com\",\n        \"mobile\": \"(000) 123-9876\",\n        \"phone\": \"(000) 123-9876\"\n      }\n    ]\n  }\n]\n"
+								},
+								"url": "https://api.cin7.com/api/v1/Contacts"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Customer / Contact by ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "97e8112f-5921-453c-be3b-c3d7e400a8de",
+										"exec": [
+											"var template = `",
+											"<style type=\"text/css\">",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+											"    .tftable tr {background-color:#ffffff;}",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+											"    .tftable tr:hover {background-color:#e0ffff;}",
+											"</style>",
+											"",
+											"<table class=\"tftable\" border=\"1\">",
+											"    <tr>",
+											"        <th>ID</th>",
+											"        <th>Created Date</th>",
+											"        <th>Modified Date</th>",
+											"        <th>Active</th>",
+											"        <th>Company</th>",
+											"        <th>First Name</th>",
+											"        <th>Last Name</th>",
+											"        <th>Email</th>",
+											"        <th>Phone</th>",
+											"        <th>Mobile</th>",
+											"        <th>Address</th>",
+											"        <th>City</th>",
+											"        <th>State</th>",
+											"        <th>Post Code</th>",
+											"        <th>Country</th>",
+											"        <th>Postal Address</th>",
+											"        <th>Postal City</th>",
+											"        <th>Postal Post Code</th>",
+											"        <th>Postal State</th>",
+											"        <th>Postal Country</th>",
+											"        <th>Notes</th>",
+											"        <th>Type</th>",
+											"        <th>Account Number</th>",
+											"        <th>Billing ID</th>",
+											"        <th>Billing Company</th>",
+											"        <th>Accounts First Name</th>",
+											"        <th>Accounts Last Name</th>",
+											"        <th>Billing Email</th>",
+											"        <th>Accounts Phone</th>",
+											"        <th>Billing Cost Center</th>",
+											"        <th>Cost Center</th>",
+											"        <th>Price Column</th>",
+											"        <th>Percentage Off</th>",
+											"        <th>Payment Terms</th>",
+											"        <th>Tax Status</th>",
+											"        <th>Tax Number</th>",
+											"        <th>Credit Limit</th>",
+											"        <th>Balance Owing</th>",
+											"        <th>On Hold</th>",
+											"        <th>Group</th>",
+											"        <th>Sub Group</th>",
+											"        <th>Stages</th>",
+											"        <th>Xero Integration ID</th>",
+											"        <th>QuickBooks Online Integration ID</th>",
+											"        <th>QuickBooks Desktop Integration ID</th>",
+											"    </tr>",
+											"    ",
+											"    {{#each response}}",
+											"        <tr>",
+											"            <td>{{id}}</td>",
+											"            <td>{{createdDate}}</td>",
+											"            <td>{{modifiedDate}}</td>",
+											"            <td>{{isActive}}</td>",
+											"            <td>{{company}}</td>",
+											"            <td>{{firstName}}</td>",
+											"            <td>{{lastName}}</td>",
+											"            <td>{{email}}</td>",
+											"            <td>{{phone}}</td>",
+											"            <td>{{mobile}}</td>",
+											"            <td>{{address1}} {{address2}}</td>",
+											"            <td>{{city}}</td>",
+											"            <td>{{state}}</td>",
+											"            <td>{{postCode}}</td>",
+											"            <td>{{country}}</td>",
+											"            <td>{{postalAddress1}} {{postalAddress2}}</td>",
+											"            <td>{{postalCity}}</td>",
+											"            <td>{{postalPostCode}}</td>",
+											"            <td>{{postalState}}</td>",
+											"            <td>{{postalCountry}}</td>",
+											"            <td>{{notes}}</td>",
+											"            <td>{{type}}</td>",
+											"            <td>{{accountNumber}}</td>",
+											"            <td>{{billingId}}</td>",
+											"            <td>{{billingCompany}}</td>",
+											"            <td>{{accountsFirstName}}</td>",
+											"            <td>{{accountsLastName}}</td>",
+											"            <td>{{billingEmail}}</td>",
+											"            <td>{{accountsPhone}}</td>",
+											"            <td>{{billingCostCenter}}</td>",
+											"            <td>{{costCenter}}</td>",
+											"            <td>{{priceColumn}}</td>",
+											"            <td>{{percentageOff}}</td>",
+											"            <td>{{paymentTerms}}</td>",
+											"            <td>{{taxStatus}}</td>",
+											"            <td>{{taxNumber}}</td>",
+											"            <td>{{creditLimit}}</td>",
+											"            <td>{{balanceOwing}}</td>",
+											"            <td>{{onHold}}</td>",
+											"            <td>{{group}}</td>",
+											"            <td>{{subGroup}}</td>",
+											"            <td>{{stages}}</td>",
+											"            <td>{{accountingIntegrationId.xero}}</td>",
+											"            <td>{{accountingIntegrationId.quickBooksOnline}}</td>",
+											"            <td>{{accountingIntegrationId.quickBooksDesktop}}</td>",
+											"        </tr>",
+											"    {{/each}}",
+											"</table>",
+											"`;",
+											"",
+											"function constructVisualizerPayload() {",
+											"    return { response: pm.response.json() }",
+											"}",
+											"",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "6bee3dac-236f-4daa-8fc3-6c40f6f4fd60",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "https://api.cin7.com/api/v1/Contacts/656"
+							},
+							"response": []
 						}
 					],
-					"id": "9c177114-3504-40d0-8722-ef81071641cb",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?page=1&rows=10",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
+					"id": "fa71dd4b-a0cd-4ebb-9800-4fac4f6d15c5"
+				},
+				{
+					"name": "Find Sales Orders",
+					"item": [
+						{
+							"name": "SalesOrders",
+							"event": [
 								{
-									"key": "where",
-									"value": "\"CreatedOn ge 2024-04-14 and CreatedOn le 2024-04-15\"",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "order",
-									"value": "CreatedOn desc",
-									"description": "\n",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "page",
-									"value": "1"
-								},
-								{
-									"key": "fields",
-									"value": "Id,OrderNumber,CreatedOn,Status",
-									"disabled": true
-								},
-								{
-									"key": "rows",
-									"value": "10"
+									"listen": "test",
+									"script": {
+										"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
+										"exec": [
+											"var template = `",
+											"<style type=\"text/css\">",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+											"    .tftable tr {background-color:#ffffff;}",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+											"    .tftable tr:hover {background-color:#e0ffff;}",
+											"</style>",
+											"",
+											"<table class=\"tftable\" border=\"1\">",
+											"    <tr>",
+											"        <th>ID</th>",
+											"        <th>Created Date</th>",
+											"        <th>Modified Date</th>",
+											"        <th>First Name</th>",
+											"        <th>Last Name</th>",
+											"        <th>Email</th>",
+											"        <th>Phone</th>",
+											"        <th>Delivery City</th>",
+											"        <th>Delivery Country</th>",
+											"        <th>Total</th>",
+											"    </tr>",
+											"    ",
+											"    {{#each response}}",
+											"        <tr id=row_{{@key}}>",
+											"            <td>{{id}}</td>",
+											"            <td>{{createdDate}}</td>",
+											"            <td>{{modifiedDate}}</td>",
+											"            <td>{{firstName}}</td>",
+											"            <td>{{lastName}}</td>",
+											"            <td>{{email}}</td>",
+											"            <td>{{phone}}</td>",
+											"            <td>{{deliveryCity}}</td>",
+											"            <td>{{deliveryCountry}}</td>",
+											"            <td>{{total}}</td>",
+											"        </tr>",
+											"    {{/each}}",
+											"</table>",
+											"`;",
+											"",
+											"function constructVisualizerPayload() {",
+											"    return { response: pm.response.json() }",
+											"}",
+											"",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript"
+									}
 								}
-							]
+							],
+							"id": "9c177114-3504-40d0-8722-ef81071641cb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/SalesOrders?page=1&rows=10",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"SalesOrders"
+									],
+									"query": [
+										{
+											"key": "where",
+											"value": "\"CreatedOn ge 2024-04-14 and CreatedOn le 2024-04-15\"",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "CreatedOn desc",
+											"description": "\n",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "fields",
+											"value": "Id,OrderNumber,CreatedOn,Status",
+											"disabled": true
+										},
+										{
+											"key": "rows",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					],
+					"id": "8da367d4-4315-4e15-8a41-91a3e05d3441"
 				},
 				{
 					"name": "SalesOrder Line Items for Costco Channel",
@@ -664,190 +860,6 @@
 								}
 							]
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Customer / Contact by ID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "97e8112f-5921-453c-be3b-c3d7e400a8de",
-								"exec": [
-									"var template = `",
-									"<style type=\"text/css\">",
-									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-									"    .tftable tr {background-color:#ffffff;}",
-									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-									"    .tftable tr:hover {background-color:#e0ffff;}",
-									"</style>",
-									"",
-									"<table class=\"tftable\" border=\"1\">",
-									"    <tr>",
-									"        <th>ID</th>",
-									"        <th>Created Date</th>",
-									"        <th>Modified Date</th>",
-									"        <th>Active</th>",
-									"        <th>Company</th>",
-									"        <th>First Name</th>",
-									"        <th>Last Name</th>",
-									"        <th>Email</th>",
-									"        <th>Phone</th>",
-									"        <th>Mobile</th>",
-									"        <th>Address</th>",
-									"        <th>City</th>",
-									"        <th>State</th>",
-									"        <th>Post Code</th>",
-									"        <th>Country</th>",
-									"        <th>Postal Address</th>",
-									"        <th>Postal City</th>",
-									"        <th>Postal Post Code</th>",
-									"        <th>Postal State</th>",
-									"        <th>Postal Country</th>",
-									"        <th>Notes</th>",
-									"        <th>Type</th>",
-									"        <th>Account Number</th>",
-									"        <th>Billing ID</th>",
-									"        <th>Billing Company</th>",
-									"        <th>Accounts First Name</th>",
-									"        <th>Accounts Last Name</th>",
-									"        <th>Billing Email</th>",
-									"        <th>Accounts Phone</th>",
-									"        <th>Billing Cost Center</th>",
-									"        <th>Cost Center</th>",
-									"        <th>Price Column</th>",
-									"        <th>Percentage Off</th>",
-									"        <th>Payment Terms</th>",
-									"        <th>Tax Status</th>",
-									"        <th>Tax Number</th>",
-									"        <th>Credit Limit</th>",
-									"        <th>Balance Owing</th>",
-									"        <th>On Hold</th>",
-									"        <th>Group</th>",
-									"        <th>Sub Group</th>",
-									"        <th>Stages</th>",
-									"        <th>Xero Integration ID</th>",
-									"        <th>QuickBooks Online Integration ID</th>",
-									"        <th>QuickBooks Desktop Integration ID</th>",
-									"    </tr>",
-									"    ",
-									"    {{#each response}}",
-									"        <tr>",
-									"            <td>{{id}}</td>",
-									"            <td>{{createdDate}}</td>",
-									"            <td>{{modifiedDate}}</td>",
-									"            <td>{{isActive}}</td>",
-									"            <td>{{company}}</td>",
-									"            <td>{{firstName}}</td>",
-									"            <td>{{lastName}}</td>",
-									"            <td>{{email}}</td>",
-									"            <td>{{phone}}</td>",
-									"            <td>{{mobile}}</td>",
-									"            <td>{{address1}} {{address2}}</td>",
-									"            <td>{{city}}</td>",
-									"            <td>{{state}}</td>",
-									"            <td>{{postCode}}</td>",
-									"            <td>{{country}}</td>",
-									"            <td>{{postalAddress1}} {{postalAddress2}}</td>",
-									"            <td>{{postalCity}}</td>",
-									"            <td>{{postalPostCode}}</td>",
-									"            <td>{{postalState}}</td>",
-									"            <td>{{postalCountry}}</td>",
-									"            <td>{{notes}}</td>",
-									"            <td>{{type}}</td>",
-									"            <td>{{accountNumber}}</td>",
-									"            <td>{{billingId}}</td>",
-									"            <td>{{billingCompany}}</td>",
-									"            <td>{{accountsFirstName}}</td>",
-									"            <td>{{accountsLastName}}</td>",
-									"            <td>{{billingEmail}}</td>",
-									"            <td>{{accountsPhone}}</td>",
-									"            <td>{{billingCostCenter}}</td>",
-									"            <td>{{costCenter}}</td>",
-									"            <td>{{priceColumn}}</td>",
-									"            <td>{{percentageOff}}</td>",
-									"            <td>{{paymentTerms}}</td>",
-									"            <td>{{taxStatus}}</td>",
-									"            <td>{{taxNumber}}</td>",
-									"            <td>{{creditLimit}}</td>",
-									"            <td>{{balanceOwing}}</td>",
-									"            <td>{{onHold}}</td>",
-									"            <td>{{group}}</td>",
-									"            <td>{{subGroup}}</td>",
-									"            <td>{{stages}}</td>",
-									"            <td>{{accountingIntegrationId.xero}}</td>",
-									"            <td>{{accountingIntegrationId.quickBooksOnline}}</td>",
-									"            <td>{{accountingIntegrationId.quickBooksDesktop}}</td>",
-									"        </tr>",
-									"    {{/each}}",
-									"</table>",
-									"`;",
-									"",
-									"function constructVisualizerPayload() {",
-									"    return { response: pm.response.json() }",
-									"}",
-									"",
-									"pm.visualizer.set(template, constructVisualizerPayload());"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"id": "6bee3dac-236f-4daa-8fc3-6c40f6f4fd60",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "https://api.cin7.com/api/v1/Contacts/656"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Contacts",
-					"id": "bdaca1da-fa14-4822-8d66-8a3f123de123",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n  {\n    \"id\": 551,\n    \"type\": \"Customer\",\n    \"accountNumber\": \"123456\",\n    \"billingId\": 100,\n    \"billingCompany\": \"Acme Billing Co.\",\n    \"accountsFirstName\": \"John\",\n    \"accountsLastName\": \"Doe\",\n    \"billingEmail\": \"billing@acme.com\",\n    \"accountsPhone\": \"(000) 123-4567\",\n    \"billingCostCenter\": \"CostCenter1\",\n    \"costCenter\": \"CostCenter2\",\n    \"priceColumn\": \"Retail\",\n    \"percentageOff\": 10,\n    \"paymentTerms\": \"Net 30\",\n    \"taxStatus\": \"Taxable\",\n    \"taxNumber\": \"TAX123456\",\n    \"creditLimit\": 5000.00,\n    \"onHold\": false,\n    \"group\": \"GroupA\",\n    \"subGroup\": \"SubGroupA\",\n    \"stages\": \"Stage1\",\n    \"accountingIntegrationId\": {\n      \"xero\": \"XERO12345\",\n      \"quickBooksOnline\": \"QBO12345\",\n      \"quickBooksDesktop\": \"QBD12345\"\n    },\n    \"isActive\": true,\n    \"company\": \"Acme Corporation\",\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"jobTitle\": \"Managing Director\",\n    \"email\": \"jane@acmecorpation.com\",\n    \"website\": \"www.acmecorpation.com\",\n    \"phone\": \"(000) 123-4567\",\n    \"fax\": \"(000) 123-4567\",\n    \"mobile\": \"(000) 123-4567\",\n    \"address1\": \"1600 Amphitheatre Pkwy\",\n    \"address2\": \"Suite 100\",\n    \"city\": \"Mountain View\",\n    \"state\": \"CA\",\n    \"postCode\": \"94043\",\n    \"country\": \"USA\",\n    \"postalAddress1\": \"Postal Address Line 1\",\n    \"postalAddress2\": \"Postal Address Line 2\",\n    \"postalCity\": \"Postal City\",\n    \"postalPostCode\": \"Postal Code\",\n    \"postalState\": \"Postal State\",\n    \"postalCountry\": \"Postal Country\",\n    \"notes\": \"Sample client contact.\",\n    \"integrationRef\": \"MY-INTEGRATION-REF\",\n    \"secondaryContacts\": [\n      {\n        \"id\": 1,\n        \"company\": \"Bob's Company\",\n        \"firstName\": \"Bob\",\n        \"lastName\": \"Joans\",\n        \"jobTitle\": \"Freelance Consultant\",\n        \"email\": \"bob@acmecorpation.com\",\n        \"mobile\": \"(000) 987-6543\",\n        \"phone\": \"(000) 987-6543\"\n      },\n      {\n        \"id\": 2,\n        \"company\": null,\n        \"firstName\": \"Lara\",\n        \"lastName\": \"Croft\",\n        \"jobTitle\": \"Accountant\",\n        \"email\": \"lara@acmecorpation.com\",\n        \"mobile\": \"(000) 123-9876\",\n        \"phone\": \"(000) 123-9876\"\n      }\n    ]\n  }\n]\n"
-						},
-						"url": "https://api.cin7.com/api/v1/Contacts"
-					},
-					"response": []
-				},
-				{
-					"name": "Create New Customer",
-					"id": "5bd243ec-f085-46ef-91ca-a1739d9a57a0",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n    {\n    \"createdDate\": \"2024-05-21T20:59:16.5071517Z\",\n    \"modifiedDate\": \"2024-05-21T20:59:16.5071517Z\",\n    \"isActive\": true,\n    \"company\": \"John Hazel Test\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Hazel\",\n    \"email\": \"john@icebarrel.com\",\n    \"website\": \"icebarrel.com\", \n    \"phone\": \"7192135895\",\n    \"address1\": \"5452 County Road Two Zero One\",\n    \"address2\": null,\n    \"city\": \"Millersburg\",\n    \"state\": \"OH\",\n    \"postCode\": \"44654\",\n    \"country\": \"USA\",\n    \"postalAddress1\": \"5452 County Road 201\",\n    \"postalAddress2\": null,\n    \"postalCity\": \"Millersburg\",\n    \"postalState\": \"OH\",\n    \"postalPostCode\": \"44654\",\n    \"postalCountry\": \"USA\",\n    \"notes\": \"Sample client contact.\",\n    \"priceColumn\": \"Tier18USD\",\n    \"integrationRef\": \"JH-IB-DEALER-INTEGRATION\",\n    \"type\": \"Customer\"\n    }\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://api.cin7.com/api/v1/Contacts"
 					},
 					"response": []
 				},
