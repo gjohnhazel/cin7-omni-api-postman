@@ -1139,7 +1139,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createdDate<'2024-01-01T00:00:00Z' AND Stage='Fully Picked'\n",
+							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createdDate<'2024-01-01T00:00:00Z' AND Stage='Fully Picked'",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -1154,8 +1154,7 @@
 							"query": [
 								{
 									"key": "where",
-									"value": "createdDate<'2024-01-01T00:00:00Z' AND Stage='Fully Picked'\n",
-									"id": 0
+									"value": "createdDate<'2024-01-01T00:00:00Z' AND Stage='Fully Picked'"
 								}
 							]
 						}
