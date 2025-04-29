@@ -202,7 +202,7 @@
 					"name": "Find Sales Orders",
 					"item": [
 						{
-							"name": "SalesOrders",
+							"name": "SalesOrders (most Recent)",
 							"event": [
 								{
 									"listen": "test",
@@ -305,6 +305,212 @@
 										{
 											"key": "rows",
 											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Sales Order By Info",
+							"id": "6fb4aebb-cdba-4fac-9bcc-0414835ff873",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=DeliveryFirstName='john' AND DeliveryLastName='hazel' AND DeliveryAddress1='5452 county road 201' AND DeliveryCity='millersburg' AND DeliveryState='oh' AND DeliveryPostalCode='44654'\n",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"SalesOrders"
+									],
+									"query": [
+										{
+											"key": "where",
+											"value": "DeliveryFirstName='john' AND DeliveryLastName='hazel' AND DeliveryAddress1='5452 county road 201' AND DeliveryCity='millersburg' AND DeliveryState='oh' AND DeliveryPostalCode='44654'\n"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Sales Orders by Country Outside of USA",
+							"id": "959b4c97-59b1-4b3d-8156-8c1ab39570a9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=DeliveryCountry<>'United States' AND DeliveryCountry<>'United States of America' AND DeliveryCountry<>'USA' AND DeliveryCountry<>'US' AND DeliveryCountry<>'' AND DeliveryCountry<>'Canada' AND DeliveryCountry<>'CA'",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"SalesOrders"
+									],
+									"query": [
+										{
+											"key": "where",
+											"value": "DeliveryCountry<>'United States' AND DeliveryCountry<>'United States of America' AND DeliveryCountry<>'USA' AND DeliveryCountry<>'US' AND DeliveryCountry<>'' AND DeliveryCountry<>'Canada' AND DeliveryCountry<>'CA'"
+										},
+										{
+											"key": "rows",
+											"value": "200",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Sales Order By Info Copy",
+							"id": "799c6c06-a5fa-48f9-9afa-d7001116f092",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=company='Amazon Seller Ice Barrel' AND createdDate<'2025-03-23T11:59:59Z' AND status='APPROVED' AND stage='Fully Picked'&rows=250&page=2",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"SalesOrders"
+									],
+									"query": [
+										{
+											"key": "where",
+											"value": "company='Amazon Seller Ice Barrel' AND createdDate<'2025-03-23T11:59:59Z' AND status='APPROVED' AND stage='Fully Picked'"
+										},
+										{
+											"key": "rows",
+											"value": "250"
+										},
+										{
+											"key": "page",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Sales Order By Stage",
+							"id": "c8016e92-e2f1-4bd7-8c3d-ac827235d347",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createdDate<'2024-01-01T00:00:00Z' AND Stage='Fully Picked'",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"SalesOrders"
+									],
+									"query": [
+										{
+											"key": "where",
+											"value": "createdDate<'2024-01-01T00:00:00Z' AND Stage='Fully Picked'"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Sales Order By Stage Copy",
+							"id": "48472c8e-a1e3-468b-85fb-74fdf2d16b85",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createdDate<'2024-01-01T00:00:00Z' AND (Stage='Awaiting Payment' OR Stage='Declined' OR Stage='On Hold' OR Stage='Cancelled')\n",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"SalesOrders"
+									],
+									"query": [
+										{
+											"key": "where",
+											"value": "createdDate<'2024-01-01T00:00:00Z' AND (Stage='Awaiting Payment' OR Stage='Declined' OR Stage='On Hold' OR Stage='Cancelled')\n"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find Sales Order By Ref #",
+							"id": "4292fb81-a526-4be5-b7cb-79ca2f760116",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=reference='JHAZ609-1'",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"SalesOrders"
+									],
+									"query": [
+										{
+											"key": "where",
+											"value": "reference='JHAZ609-1'"
 										}
 									]
 								}
@@ -1053,207 +1259,6 @@
 							}
 						},
 						"url": "https://api.cin7.com/api/v1/SalesOrders"
-					},
-					"response": []
-				},
-				{
-					"name": "Find Sales Order By Info",
-					"id": "6fb4aebb-cdba-4fac-9bcc-0414835ff873",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=DeliveryFirstName='john' AND DeliveryLastName='hazel' AND DeliveryAddress1='5452 county road 201' AND DeliveryCity='millersburg' AND DeliveryState='oh' AND DeliveryPostalCode='44654'\n",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "DeliveryFirstName='john' AND DeliveryLastName='hazel' AND DeliveryAddress1='5452 county road 201' AND DeliveryCity='millersburg' AND DeliveryState='oh' AND DeliveryPostalCode='44654'\n"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Find Sales Order By Country",
-					"id": "959b4c97-59b1-4b3d-8156-8c1ab39570a9",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=DeliveryCountry<>'United States' AND DeliveryCountry<>'United States of America'",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "DeliveryCountry<>'United States' AND DeliveryCountry<>'United States of America'"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Find Sales Order By Info Copy",
-					"id": "799c6c06-a5fa-48f9-9afa-d7001116f092",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=company='Amazon Seller Ice Barrel' AND createdDate<'2025-03-23T11:59:59Z' AND status='APPROVED' AND stage='Fully Picked'&rows=250&page=2",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "company='Amazon Seller Ice Barrel' AND createdDate<'2025-03-23T11:59:59Z' AND status='APPROVED' AND stage='Fully Picked'"
-								},
-								{
-									"key": "rows",
-									"value": "250"
-								},
-								{
-									"key": "page",
-									"value": "2",
-									"type": "text"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Find Sales Order By Stage",
-					"id": "c8016e92-e2f1-4bd7-8c3d-ac827235d347",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createdDate<'2024-01-01T00:00:00Z' AND Stage='Fully Picked'",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "createdDate<'2024-01-01T00:00:00Z' AND Stage='Fully Picked'"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Find Sales Order By Stage Copy",
-					"id": "48472c8e-a1e3-468b-85fb-74fdf2d16b85",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createdDate<'2024-01-01T00:00:00Z' AND (Stage='Awaiting Payment' OR Stage='Declined' OR Stage='On Hold' OR Stage='Cancelled')\n",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "createdDate<'2024-01-01T00:00:00Z' AND (Stage='Awaiting Payment' OR Stage='Declined' OR Stage='On Hold' OR Stage='Cancelled')\n"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Find Sales Order By Ref #",
-					"id": "4292fb81-a526-4be5-b7cb-79ca2f760116",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=reference='JHAZ609-1'",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "reference='JHAZ609-1'"
-								}
-							]
-						}
 					},
 					"response": []
 				},
