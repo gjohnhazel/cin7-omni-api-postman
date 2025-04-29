@@ -202,7 +202,325 @@
 					"name": "Find Sales Orders",
 					"item": [
 						{
-							"name": "SalesOrders (most Recent)",
+							"name": "By Location",
+							"item": [
+								{
+									"name": "Find Sales Orders By Location - Country Outside of USA",
+									"id": "959b4c97-59b1-4b3d-8156-8c1ab39570a9",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://api.cin7.com/api/v1/SalesOrders?where=DeliveryCountry<>'United States' AND DeliveryCountry<>'United States of America' AND DeliveryCountry<>'USA' AND DeliveryCountry<>'US' AND DeliveryCountry<>'' AND DeliveryCountry<>'Canada' AND DeliveryCountry<>'CA'",
+											"protocol": "https",
+											"host": [
+												"api",
+												"cin7",
+												"com"
+											],
+											"path": [
+												"api",
+												"v1",
+												"SalesOrders"
+											],
+											"query": [
+												{
+													"key": "where",
+													"value": "DeliveryCountry<>'United States' AND DeliveryCountry<>'United States of America' AND DeliveryCountry<>'USA' AND DeliveryCountry<>'US' AND DeliveryCountry<>'' AND DeliveryCountry<>'Canada' AND DeliveryCountry<>'CA'"
+												},
+												{
+													"key": "rows",
+													"value": "200",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find Sales Orders By Location - State",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
+												"exec": [
+													"var template = `",
+													"<style type=\"text/css\">",
+													"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+													"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+													"    .tftable tr {background-color:#ffffff;}",
+													"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+													"    .tftable tr:hover {background-color:#e0ffff;}",
+													"</style>",
+													"",
+													"<table class=\"tftable\" border=\"1\">",
+													"    <tr>",
+													"        <th>ID</th>",
+													"        <th>Created Date</th>",
+													"        <th>Modified Date</th>",
+													"        <th>First Name</th>",
+													"        <th>Last Name</th>",
+													"        <th>Email</th>",
+													"        <th>Phone</th>",
+													"        <th>Delivery City</th>",
+													"        <th>Delivery Country</th>",
+													"        <th>Total</th>",
+													"    </tr>",
+													"    ",
+													"    {{#each response}}",
+													"        <tr id=row_{{@key}}>",
+													"            <td>{{id}}</td>",
+													"            <td>{{createdDate}}</td>",
+													"            <td>{{modifiedDate}}</td>",
+													"            <td>{{firstName}}</td>",
+													"            <td>{{lastName}}</td>",
+													"            <td>{{email}}</td>",
+													"            <td>{{phone}}</td>",
+													"            <td>{{deliveryCity}}</td>",
+													"            <td>{{deliveryCountry}}</td>",
+													"            <td>{{total}}</td>",
+													"        </tr>",
+													"    {{/each}}",
+													"</table>",
+													"`;",
+													"",
+													"function constructVisualizerPayload() {",
+													"    return { response: pm.response.json() }",
+													"}",
+													"",
+													"pm.visualizer.set(template, constructVisualizerPayload());"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "b25e2f61-55d7-4458-bcd3-fd04079d9ebb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://api.cin7.com/api/v1/SalesOrders?where=DeliveryState='MN'\n",
+											"protocol": "https",
+											"host": [
+												"api",
+												"cin7",
+												"com"
+											],
+											"path": [
+												"api",
+												"v1",
+												"SalesOrders"
+											],
+											"query": [
+												{
+													"key": "where",
+													"value": "\"CreatedOn ge 2024-04-14 and CreatedOn le 2024-04-15\"",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "order",
+													"value": "CreatedOn desc",
+													"description": "\n",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "fields",
+													"value": "Id,OrderNumber,CreatedOn,Status",
+													"disabled": true
+												},
+												{
+													"key": "where",
+													"value": "DeliveryState='MN'\n"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "40585a8d-d9b7-456e-8239-aff75eeb4d64"
+						},
+						{
+							"name": "By Channel",
+							"item": [
+								{
+									"name": "Find Sales Orders By Channel - Amazon",
+									"id": "799c6c06-a5fa-48f9-9afa-d7001116f092",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://api.cin7.com/api/v1/SalesOrders?where=company='Amazon Seller Ice Barrel' AND createdDate<'2025-03-23T11:59:59Z' AND status='APPROVED' AND stage='Fully Picked'&rows=250&page=2",
+											"protocol": "https",
+											"host": [
+												"api",
+												"cin7",
+												"com"
+											],
+											"path": [
+												"api",
+												"v1",
+												"SalesOrders"
+											],
+											"query": [
+												{
+													"key": "where",
+													"value": "company='Amazon Seller Ice Barrel' AND createdDate<'2025-03-23T11:59:59Z' AND status='APPROVED' AND stage='Fully Picked'"
+												},
+												{
+													"key": "rows",
+													"value": "250"
+												},
+												{
+													"key": "page",
+													"value": "2",
+													"type": "text"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find Sales Orders By Channel - Costco",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
+												"exec": [
+													"var template = `",
+													"<style type=\"text/css\">",
+													"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+													"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+													"    .tftable tr {background-color:#ffffff;}",
+													"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+													"    .tftable tr:hover {background-color:#e0ffff;}",
+													"</style>",
+													"",
+													"<table class=\"tftable\" border=\"1\">",
+													"    <tr>",
+													"        <th>ID</th>",
+													"        <th>Created Date</th>",
+													"        <th>Modified Date</th>",
+													"        <th>First Name</th>",
+													"        <th>Last Name</th>",
+													"        <th>Email</th>",
+													"        <th>Phone</th>",
+													"        <th>Delivery City</th>",
+													"        <th>Delivery Country</th>",
+													"        <th>Total</th>",
+													"    </tr>",
+													"    ",
+													"    {{#each response}}",
+													"        <tr id=row_{{@key}}>",
+													"            <td>{{id}}</td>",
+													"            <td>{{createdDate}}</td>",
+													"            <td>{{modifiedDate}}</td>",
+													"            <td>{{firstName}}</td>",
+													"            <td>{{lastName}}</td>",
+													"            <td>{{email}}</td>",
+													"            <td>{{phone}}</td>",
+													"            <td>{{deliveryCity}}</td>",
+													"            <td>{{deliveryCountry}}</td>",
+													"            <td>{{total}}</td>",
+													"        </tr>",
+													"    {{/each}}",
+													"</table>",
+													"`;",
+													"",
+													"function constructVisualizerPayload() {",
+													"    return { response: pm.response.json() }",
+													"}",
+													"",
+													"pm.visualizer.set(template, constructVisualizerPayload());"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "24b63d68-9e79-42c7-9b91-15fca8b87944",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "https://api.cin7.com/api/v1/SalesOrders?rows=200&where=company='Costco'&page=1&fields=lineItems,Id,InvoiceDate,InvoiceNumber",
+											"protocol": "https",
+											"host": [
+												"api",
+												"cin7",
+												"com"
+											],
+											"path": [
+												"api",
+												"v1",
+												"SalesOrders"
+											],
+											"query": [
+												{
+													"key": "where",
+													"value": "\"CreatedOn ge 2024-04-14 and CreatedOn le 2024-04-15\"",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "order",
+													"value": "CreatedOn desc",
+													"description": "\n",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "fields",
+													"value": "Id,OrderNumber,CreatedOn,Status",
+													"disabled": true
+												},
+												{
+													"key": "rows",
+													"value": "200"
+												},
+												{
+													"key": "where",
+													"value": "company='Costco'"
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "fields",
+													"value": "lineItems,Id,InvoiceDate,InvoiceNumber"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "579f0484-7fb0-4970-b9ed-a9d16b2ea484"
+						},
+						{
+							"name": "Get Sales Orders (most Recent)",
 							"event": [
 								{
 									"listen": "test",
@@ -344,8 +662,64 @@
 							"response": []
 						},
 						{
-							"name": "Find Sales Orders by Country Outside of USA",
-							"id": "959b4c97-59b1-4b3d-8156-8c1ab39570a9",
+							"name": "Find Sales Orders By Created Date",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
+										"exec": [
+											"var template = `",
+											"<style type=\"text/css\">",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+											"    .tftable tr {background-color:#ffffff;}",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+											"    .tftable tr:hover {background-color:#e0ffff;}",
+											"</style>",
+											"",
+											"<table class=\"tftable\" border=\"1\">",
+											"    <tr>",
+											"        <th>ID</th>",
+											"        <th>Created Date</th>",
+											"        <th>Modified Date</th>",
+											"        <th>First Name</th>",
+											"        <th>Last Name</th>",
+											"        <th>Email</th>",
+											"        <th>Phone</th>",
+											"        <th>Delivery City</th>",
+											"        <th>Delivery Country</th>",
+											"        <th>Total</th>",
+											"    </tr>",
+											"    ",
+											"    {{#each response}}",
+											"        <tr id=row_{{@key}}>",
+											"            <td>{{id}}</td>",
+											"            <td>{{createdDate}}</td>",
+											"            <td>{{modifiedDate}}</td>",
+											"            <td>{{firstName}}</td>",
+											"            <td>{{lastName}}</td>",
+											"            <td>{{email}}</td>",
+											"            <td>{{phone}}</td>",
+											"            <td>{{deliveryCity}}</td>",
+											"            <td>{{deliveryCountry}}</td>",
+											"            <td>{{total}}</td>",
+											"        </tr>",
+											"    {{/each}}",
+											"</table>",
+											"`;",
+											"",
+											"function constructVisualizerPayload() {",
+											"    return { response: pm.response.json() }",
+											"}",
+											"",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "43aeae73-0f34-4faf-9dcc-bdfad269f15c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -353,7 +727,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=DeliveryCountry<>'United States' AND DeliveryCountry<>'United States of America' AND DeliveryCountry<>'USA' AND DeliveryCountry<>'US' AND DeliveryCountry<>'' AND DeliveryCountry<>'Canada' AND DeliveryCountry<>'CA'",
+									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=CreatedDate>2024-04-15T00:00:00Z&page=1&rows=100",
 									"protocol": "https",
 									"host": [
 										"api",
@@ -368,11 +742,26 @@
 									"query": [
 										{
 											"key": "where",
-											"value": "DeliveryCountry<>'United States' AND DeliveryCountry<>'United States of America' AND DeliveryCountry<>'USA' AND DeliveryCountry<>'US' AND DeliveryCountry<>'' AND DeliveryCountry<>'Canada' AND DeliveryCountry<>'CA'"
+											"value": "CreatedDate>2024-04-15T00:00:00Z"
+										},
+										{
+											"key": "order",
+											"value": "CreatedOn desc",
+											"description": "\n",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1"
 										},
 										{
 											"key": "rows",
-											"value": "200",
+											"value": "100"
+										},
+										{
+											"key": "fields",
+											"value": "Id,OrderNumber,CreatedOn,Status",
 											"disabled": true
 										}
 									]
@@ -381,48 +770,7 @@
 							"response": []
 						},
 						{
-							"name": "Find Sales Order By Info Copy",
-							"id": "799c6c06-a5fa-48f9-9afa-d7001116f092",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=company='Amazon Seller Ice Barrel' AND createdDate<'2025-03-23T11:59:59Z' AND status='APPROVED' AND stage='Fully Picked'&rows=250&page=2",
-									"protocol": "https",
-									"host": [
-										"api",
-										"cin7",
-										"com"
-									],
-									"path": [
-										"api",
-										"v1",
-										"SalesOrders"
-									],
-									"query": [
-										{
-											"key": "where",
-											"value": "company='Amazon Seller Ice Barrel' AND createdDate<'2025-03-23T11:59:59Z' AND status='APPROVED' AND stage='Fully Picked'"
-										},
-										{
-											"key": "rows",
-											"value": "250"
-										},
-										{
-											"key": "page",
-											"value": "2",
-											"type": "text"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Find Sales Order By Stage",
+							"name": "Find Sales Order By Stage (Fully Picked)",
 							"id": "c8016e92-e2f1-4bd7-8c3d-ac827235d347",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -454,7 +802,7 @@
 							"response": []
 						},
 						{
-							"name": "Find Sales Order By Stage Copy",
+							"name": "Find Sales Order By Stage (not Fully Picked)",
 							"id": "48472c8e-a1e3-468b-85fb-74fdf2d16b85",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -479,6 +827,219 @@
 										{
 											"key": "where",
 											"value": "createdDate<'2024-01-01T00:00:00Z' AND (Stage='Awaiting Payment' OR Stage='Declined' OR Stage='On Hold' OR Stage='Cancelled')\n"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SalesOrders - Chillers",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
+										"exec": [
+											"var template = `",
+											"<style type=\"text/css\">",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+											"    .tftable tr {background-color:#ffffff;}",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+											"    .tftable tr:hover {background-color:#e0ffff;}",
+											"</style>",
+											"",
+											"<table class=\"tftable\" border=\"1\">",
+											"    <tr>",
+											"        <th>ID</th>",
+											"        <th>Created Date</th>",
+											"        <th>Modified Date</th>",
+											"        <th>First Name</th>",
+											"        <th>Last Name</th>",
+											"        <th>Email</th>",
+											"        <th>Phone</th>",
+											"        <th>Delivery City</th>",
+											"        <th>Delivery Country</th>",
+											"        <th>Total</th>",
+											"    </tr>",
+											"    ",
+											"    {{#each response}}",
+											"        <tr id=row_{{@key}}>",
+											"            <td>{{id}}</td>",
+											"            <td>{{createdDate}}</td>",
+											"            <td>{{modifiedDate}}</td>",
+											"            <td>{{firstName}}</td>",
+											"            <td>{{lastName}}</td>",
+											"            <td>{{email}}</td>",
+											"            <td>{{phone}}</td>",
+											"            <td>{{deliveryCity}}</td>",
+											"            <td>{{deliveryCountry}}</td>",
+											"            <td>{{total}}</td>",
+											"        </tr>",
+											"    {{/each}}",
+											"</table>",
+											"`;",
+											"",
+											"function constructVisualizerPayload() {",
+											"    return { response: pm.response.json() }",
+											"}",
+											"",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "32b86116-facf-4dcf-a75a-9053a40b9f5b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createddate>'2024-12-31T23:59:59Z'&order=CreatedDate ASC&fields=Id,CreatedDate,Status,LineItems(code,name,qty)&page=5&rows=200",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"SalesOrders"
+									],
+									"query": [
+										{
+											"key": "where",
+											"value": "createddate>'2024-12-31T23:59:59Z'"
+										},
+										{
+											"key": "order",
+											"value": "CreatedDate ASC",
+											"description": "\n"
+										},
+										{
+											"key": "fields",
+											"value": "Id,CreatedDate,Status,LineItems(code,name,qty)"
+										},
+										{
+											"key": "page",
+											"value": "5"
+										},
+										{
+											"key": "rows",
+											"value": "200"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SalesOrders where Stage",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
+										"exec": [
+											"var template = `",
+											"<style type=\"text/css\">",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+											"    .tftable tr {background-color:#ffffff;}",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+											"    .tftable tr:hover {background-color:#e0ffff;}",
+											"</style>",
+											"",
+											"<table class=\"tftable\" border=\"1\">",
+											"    <tr>",
+											"        <th>ID</th>",
+											"        <th>Created Date</th>",
+											"        <th>Modified Date</th>",
+											"        <th>First Name</th>",
+											"        <th>Last Name</th>",
+											"        <th>Email</th>",
+											"        <th>Phone</th>",
+											"        <th>Delivery City</th>",
+											"        <th>Delivery Country</th>",
+											"        <th>Total</th>",
+											"    </tr>",
+											"    ",
+											"    {{#each response}}",
+											"        <tr id=row_{{@key}}>",
+											"            <td>{{id}}</td>",
+											"            <td>{{createdDate}}</td>",
+											"            <td>{{modifiedDate}}</td>",
+											"            <td>{{firstName}}</td>",
+											"            <td>{{lastName}}</td>",
+											"            <td>{{email}}</td>",
+											"            <td>{{phone}}</td>",
+											"            <td>{{deliveryCity}}</td>",
+											"            <td>{{deliveryCountry}}</td>",
+											"            <td>{{total}}</td>",
+											"        </tr>",
+											"    {{/each}}",
+											"</table>",
+											"`;",
+											"",
+											"function constructVisualizerPayload() {",
+											"    return { response: pm.response.json() }",
+											"}",
+											"",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "f393dc16-ddce-4f49-ad6d-59e18f8b024b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/SalesOrders?order=modifiedDate desc&where=stage='Dispatched'",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"SalesOrders"
+									],
+									"query": [
+										{
+											"key": "where",
+											"value": "\"CreatedOn ge 2024-04-14 and CreatedOn le 2024-04-15\"",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "modifiedDate desc",
+											"description": "\n"
+										},
+										{
+											"key": "fields",
+											"value": "Id,OrderNumber,CreatedOn,Status",
+											"disabled": true
+										},
+										{
+											"key": "where",
+											"value": "stage='Dispatched'"
 										}
 									]
 								}
@@ -519,555 +1080,6 @@
 						}
 					],
 					"id": "8da367d4-4315-4e15-8a41-91a3e05d3441"
-				},
-				{
-					"name": "SalesOrder Line Items for Costco Channel",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
-								"exec": [
-									"var template = `",
-									"<style type=\"text/css\">",
-									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-									"    .tftable tr {background-color:#ffffff;}",
-									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-									"    .tftable tr:hover {background-color:#e0ffff;}",
-									"</style>",
-									"",
-									"<table class=\"tftable\" border=\"1\">",
-									"    <tr>",
-									"        <th>ID</th>",
-									"        <th>Created Date</th>",
-									"        <th>Modified Date</th>",
-									"        <th>First Name</th>",
-									"        <th>Last Name</th>",
-									"        <th>Email</th>",
-									"        <th>Phone</th>",
-									"        <th>Delivery City</th>",
-									"        <th>Delivery Country</th>",
-									"        <th>Total</th>",
-									"    </tr>",
-									"    ",
-									"    {{#each response}}",
-									"        <tr id=row_{{@key}}>",
-									"            <td>{{id}}</td>",
-									"            <td>{{createdDate}}</td>",
-									"            <td>{{modifiedDate}}</td>",
-									"            <td>{{firstName}}</td>",
-									"            <td>{{lastName}}</td>",
-									"            <td>{{email}}</td>",
-									"            <td>{{phone}}</td>",
-									"            <td>{{deliveryCity}}</td>",
-									"            <td>{{deliveryCountry}}</td>",
-									"            <td>{{total}}</td>",
-									"        </tr>",
-									"    {{/each}}",
-									"</table>",
-									"`;",
-									"",
-									"function constructVisualizerPayload() {",
-									"    return { response: pm.response.json() }",
-									"}",
-									"",
-									"pm.visualizer.set(template, constructVisualizerPayload());"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "24b63d68-9e79-42c7-9b91-15fca8b87944",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?rows=200&where=company='Costco'&page=1&fields=lineItems,Id,InvoiceDate,InvoiceNumber",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "\"CreatedOn ge 2024-04-14 and CreatedOn le 2024-04-15\"",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "order",
-									"value": "CreatedOn desc",
-									"description": "\n",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "fields",
-									"value": "Id,OrderNumber,CreatedOn,Status",
-									"disabled": true
-								},
-								{
-									"key": "rows",
-									"value": "200"
-								},
-								{
-									"key": "where",
-									"value": "company='Costco'"
-								},
-								{
-									"key": "page",
-									"value": "1"
-								},
-								{
-									"key": "fields",
-									"value": "lineItems,Id,InvoiceDate,InvoiceNumber"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "SalesOrders - Chillers",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
-								"exec": [
-									"var template = `",
-									"<style type=\"text/css\">",
-									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-									"    .tftable tr {background-color:#ffffff;}",
-									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-									"    .tftable tr:hover {background-color:#e0ffff;}",
-									"</style>",
-									"",
-									"<table class=\"tftable\" border=\"1\">",
-									"    <tr>",
-									"        <th>ID</th>",
-									"        <th>Created Date</th>",
-									"        <th>Modified Date</th>",
-									"        <th>First Name</th>",
-									"        <th>Last Name</th>",
-									"        <th>Email</th>",
-									"        <th>Phone</th>",
-									"        <th>Delivery City</th>",
-									"        <th>Delivery Country</th>",
-									"        <th>Total</th>",
-									"    </tr>",
-									"    ",
-									"    {{#each response}}",
-									"        <tr id=row_{{@key}}>",
-									"            <td>{{id}}</td>",
-									"            <td>{{createdDate}}</td>",
-									"            <td>{{modifiedDate}}</td>",
-									"            <td>{{firstName}}</td>",
-									"            <td>{{lastName}}</td>",
-									"            <td>{{email}}</td>",
-									"            <td>{{phone}}</td>",
-									"            <td>{{deliveryCity}}</td>",
-									"            <td>{{deliveryCountry}}</td>",
-									"            <td>{{total}}</td>",
-									"        </tr>",
-									"    {{/each}}",
-									"</table>",
-									"`;",
-									"",
-									"function constructVisualizerPayload() {",
-									"    return { response: pm.response.json() }",
-									"}",
-									"",
-									"pm.visualizer.set(template, constructVisualizerPayload());"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "32b86116-facf-4dcf-a75a-9053a40b9f5b",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createddate>'2024-12-31T23:59:59Z'&order=CreatedDate ASC&fields=Id,CreatedDate,Status,LineItems(code,name,qty)&page=5&rows=200",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "createddate>'2024-12-31T23:59:59Z'"
-								},
-								{
-									"key": "order",
-									"value": "CreatedDate ASC",
-									"description": "\n"
-								},
-								{
-									"key": "fields",
-									"value": "Id,CreatedDate,Status,LineItems(code,name,qty)"
-								},
-								{
-									"key": "page",
-									"value": "5"
-								},
-								{
-									"key": "rows",
-									"value": "200"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "SalesOrders where Stage",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
-								"exec": [
-									"var template = `",
-									"<style type=\"text/css\">",
-									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-									"    .tftable tr {background-color:#ffffff;}",
-									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-									"    .tftable tr:hover {background-color:#e0ffff;}",
-									"</style>",
-									"",
-									"<table class=\"tftable\" border=\"1\">",
-									"    <tr>",
-									"        <th>ID</th>",
-									"        <th>Created Date</th>",
-									"        <th>Modified Date</th>",
-									"        <th>First Name</th>",
-									"        <th>Last Name</th>",
-									"        <th>Email</th>",
-									"        <th>Phone</th>",
-									"        <th>Delivery City</th>",
-									"        <th>Delivery Country</th>",
-									"        <th>Total</th>",
-									"    </tr>",
-									"    ",
-									"    {{#each response}}",
-									"        <tr id=row_{{@key}}>",
-									"            <td>{{id}}</td>",
-									"            <td>{{createdDate}}</td>",
-									"            <td>{{modifiedDate}}</td>",
-									"            <td>{{firstName}}</td>",
-									"            <td>{{lastName}}</td>",
-									"            <td>{{email}}</td>",
-									"            <td>{{phone}}</td>",
-									"            <td>{{deliveryCity}}</td>",
-									"            <td>{{deliveryCountry}}</td>",
-									"            <td>{{total}}</td>",
-									"        </tr>",
-									"    {{/each}}",
-									"</table>",
-									"`;",
-									"",
-									"function constructVisualizerPayload() {",
-									"    return { response: pm.response.json() }",
-									"}",
-									"",
-									"pm.visualizer.set(template, constructVisualizerPayload());"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "f393dc16-ddce-4f49-ad6d-59e18f8b024b",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?order=modifiedDate desc&where=stage='Dispatched'",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "\"CreatedOn ge 2024-04-14 and CreatedOn le 2024-04-15\"",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "order",
-									"value": "modifiedDate desc",
-									"description": "\n"
-								},
-								{
-									"key": "fields",
-									"value": "Id,OrderNumber,CreatedOn,Status",
-									"disabled": true
-								},
-								{
-									"key": "where",
-									"value": "stage='Dispatched'"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Sales Order based on location",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
-								"exec": [
-									"var template = `",
-									"<style type=\"text/css\">",
-									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-									"    .tftable tr {background-color:#ffffff;}",
-									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-									"    .tftable tr:hover {background-color:#e0ffff;}",
-									"</style>",
-									"",
-									"<table class=\"tftable\" border=\"1\">",
-									"    <tr>",
-									"        <th>ID</th>",
-									"        <th>Created Date</th>",
-									"        <th>Modified Date</th>",
-									"        <th>First Name</th>",
-									"        <th>Last Name</th>",
-									"        <th>Email</th>",
-									"        <th>Phone</th>",
-									"        <th>Delivery City</th>",
-									"        <th>Delivery Country</th>",
-									"        <th>Total</th>",
-									"    </tr>",
-									"    ",
-									"    {{#each response}}",
-									"        <tr id=row_{{@key}}>",
-									"            <td>{{id}}</td>",
-									"            <td>{{createdDate}}</td>",
-									"            <td>{{modifiedDate}}</td>",
-									"            <td>{{firstName}}</td>",
-									"            <td>{{lastName}}</td>",
-									"            <td>{{email}}</td>",
-									"            <td>{{phone}}</td>",
-									"            <td>{{deliveryCity}}</td>",
-									"            <td>{{deliveryCountry}}</td>",
-									"            <td>{{total}}</td>",
-									"        </tr>",
-									"    {{/each}}",
-									"</table>",
-									"`;",
-									"",
-									"function constructVisualizerPayload() {",
-									"    return { response: pm.response.json() }",
-									"}",
-									"",
-									"pm.visualizer.set(template, constructVisualizerPayload());"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "b25e2f61-55d7-4458-bcd3-fd04079d9ebb",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=DeliveryState='MN'\n",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "\"CreatedOn ge 2024-04-14 and CreatedOn le 2024-04-15\"",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "order",
-									"value": "CreatedOn desc",
-									"description": "\n",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "fields",
-									"value": "Id,OrderNumber,CreatedOn,Status",
-									"disabled": true
-								},
-								{
-									"key": "where",
-									"value": "DeliveryState='MN'\n"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "SalesOrders Copy",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
-								"exec": [
-									"var template = `",
-									"<style type=\"text/css\">",
-									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-									"    .tftable tr {background-color:#ffffff;}",
-									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-									"    .tftable tr:hover {background-color:#e0ffff;}",
-									"</style>",
-									"",
-									"<table class=\"tftable\" border=\"1\">",
-									"    <tr>",
-									"        <th>ID</th>",
-									"        <th>Created Date</th>",
-									"        <th>Modified Date</th>",
-									"        <th>First Name</th>",
-									"        <th>Last Name</th>",
-									"        <th>Email</th>",
-									"        <th>Phone</th>",
-									"        <th>Delivery City</th>",
-									"        <th>Delivery Country</th>",
-									"        <th>Total</th>",
-									"    </tr>",
-									"    ",
-									"    {{#each response}}",
-									"        <tr id=row_{{@key}}>",
-									"            <td>{{id}}</td>",
-									"            <td>{{createdDate}}</td>",
-									"            <td>{{modifiedDate}}</td>",
-									"            <td>{{firstName}}</td>",
-									"            <td>{{lastName}}</td>",
-									"            <td>{{email}}</td>",
-									"            <td>{{phone}}</td>",
-									"            <td>{{deliveryCity}}</td>",
-									"            <td>{{deliveryCountry}}</td>",
-									"            <td>{{total}}</td>",
-									"        </tr>",
-									"    {{/each}}",
-									"</table>",
-									"`;",
-									"",
-									"function constructVisualizerPayload() {",
-									"    return { response: pm.response.json() }",
-									"}",
-									"",
-									"pm.visualizer.set(template, constructVisualizerPayload());"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "43aeae73-0f34-4faf-9dcc-bdfad269f15c",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=CreatedDate>2024-04-15T00:00:00Z&page=1&rows=100",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "CreatedDate>2024-04-15T00:00:00Z"
-								},
-								{
-									"key": "order",
-									"value": "CreatedOn desc",
-									"description": "\n",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "page",
-									"value": "1"
-								},
-								{
-									"key": "rows",
-									"value": "100"
-								},
-								{
-									"key": "fields",
-									"value": "Id,OrderNumber,CreatedOn,Status",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
 				},
 				{
 					"name": "Products",
