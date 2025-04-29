@@ -515,9 +515,446 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "Get Best Buy Sales Orders",
+									"id": "3236cf26-6b23-4934-9dee-2cce75c5a459",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://api.cin7.com/api/v1/SalesOrders?where=Company='Best Buy USA' OR DeliveryFirstName='Best Buy USA' OR Company='Best Buy USA' OR BillingCompany='Best Buy Purchasing LLC'",
+											"protocol": "https",
+											"host": [
+												"api",
+												"cin7",
+												"com"
+											],
+											"path": [
+												"api",
+												"v1",
+												"SalesOrders"
+											],
+											"query": [
+												{
+													"key": "where",
+													"value": "Company='Best Buy USA' OR DeliveryFirstName='Best Buy USA' OR Company='Best Buy USA' OR BillingCompany='Best Buy Purchasing LLC'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Costco Sales Orders",
+									"id": "83dee012-dd86-453b-a6c4-bee515edac3c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://api.cin7.com/api/v1/SalesOrders?where=Company='Costco'",
+											"protocol": "https",
+											"host": [
+												"api",
+												"cin7",
+												"com"
+											],
+											"path": [
+												"api",
+												"v1",
+												"SalesOrders"
+											],
+											"query": [
+												{
+													"key": "where",
+													"value": "Company='Costco'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Texas Costco Sales Orders",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "69e3910f-aef9-4675-8a3d-f47380a34dd8",
+												"exec": [
+													"var template = `",
+													"<style type=\"text/css\">",
+													"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+													"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+													"    .tftable tr {background-color:#ffffff;}",
+													"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+													"    .tftable tr:hover {background-color:#e0ffff;}",
+													"</style>",
+													"",
+													"<table class=\"tftable\" border=\"1\">",
+													"    <tr>",
+													"        <th>ID</th>",
+													"        <th>Created Date</th>",
+													"        <th>Modified Date</th>",
+													"        <th>Company</th>",
+													"        <th>Delivery City</th>",
+													"        <th>Delivery State</th>",
+													"        <th>Delivery Postal Code</th>",
+													"        <th>Total</th>",
+													"    </tr>",
+													"    ",
+													"    {{#each response}}",
+													"        <tr id=row_{{@key}}>",
+													"            <td>{{id}}</td>",
+													"            <td>{{createdDate}}</td>",
+													"            <td>{{modifiedDate}}</td>",
+													"            <td>{{company}}</td>",
+													"            <td>{{deliveryCity}}</td>",
+													"            <td>{{deliveryState}}</td>",
+													"            <td>{{deliveryPostalCode}}</td>",
+													"            <td>{{total}}</td>",
+													"        </tr>",
+													"    {{/each}}",
+													"</table>",
+													"`;",
+													"",
+													"function constructVisualizerPayload() {",
+													"    return { response: pm.response.json() }",
+													"}",
+													"",
+													"pm.visualizer.set(template, constructVisualizerPayload());"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "37f3b104-83a4-4268-a472-44e15ee2b4d0",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://api.cin7.com/api/v1/SalesOrders?where=Company='Costco' AND DeliveryState='TX'",
+											"protocol": "https",
+											"host": [
+												"api",
+												"cin7",
+												"com"
+											],
+											"path": [
+												"api",
+												"v1",
+												"SalesOrders"
+											],
+											"query": [
+												{
+													"key": "where",
+													"value": "Company='Costco' AND DeliveryState='TX'"
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"id": "579f0484-7fb0-4970-b9ed-a9d16b2ea484"
+						},
+						{
+							"name": "By Product",
+							"item": [
+								{
+									"name": "SalesOrders - Chillers",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
+												"exec": [
+													"var template = `",
+													"<style type=\"text/css\">",
+													"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+													"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+													"    .tftable tr {background-color:#ffffff;}",
+													"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+													"    .tftable tr:hover {background-color:#e0ffff;}",
+													"</style>",
+													"",
+													"<table class=\"tftable\" border=\"1\">",
+													"    <tr>",
+													"        <th>ID</th>",
+													"        <th>Created Date</th>",
+													"        <th>Modified Date</th>",
+													"        <th>First Name</th>",
+													"        <th>Last Name</th>",
+													"        <th>Email</th>",
+													"        <th>Phone</th>",
+													"        <th>Delivery City</th>",
+													"        <th>Delivery Country</th>",
+													"        <th>Total</th>",
+													"    </tr>",
+													"    ",
+													"    {{#each response}}",
+													"        <tr id=row_{{@key}}>",
+													"            <td>{{id}}</td>",
+													"            <td>{{createdDate}}</td>",
+													"            <td>{{modifiedDate}}</td>",
+													"            <td>{{firstName}}</td>",
+													"            <td>{{lastName}}</td>",
+													"            <td>{{email}}</td>",
+													"            <td>{{phone}}</td>",
+													"            <td>{{deliveryCity}}</td>",
+													"            <td>{{deliveryCountry}}</td>",
+													"            <td>{{total}}</td>",
+													"        </tr>",
+													"    {{/each}}",
+													"</table>",
+													"`;",
+													"",
+													"function constructVisualizerPayload() {",
+													"    return { response: pm.response.json() }",
+													"}",
+													"",
+													"pm.visualizer.set(template, constructVisualizerPayload());"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "32b86116-facf-4dcf-a75a-9053a40b9f5b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createddate>'2024-12-31T23:59:59Z'&order=CreatedDate ASC&fields=Id,CreatedDate,Status,LineItems(code,name,qty)&page=5&rows=200",
+											"protocol": "https",
+											"host": [
+												"api",
+												"cin7",
+												"com"
+											],
+											"path": [
+												"api",
+												"v1",
+												"SalesOrders"
+											],
+											"query": [
+												{
+													"key": "where",
+													"value": "createddate>'2024-12-31T23:59:59Z'"
+												},
+												{
+													"key": "order",
+													"value": "CreatedDate ASC",
+													"description": "\n"
+												},
+												{
+													"key": "fields",
+													"value": "Id,CreatedDate,Status,LineItems(code,name,qty)"
+												},
+												{
+													"key": "page",
+													"value": "5"
+												},
+												{
+													"key": "rows",
+													"value": "200"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "4d8788dd-ec71-4784-a57d-9cf428c3f9eb"
+						},
+						{
+							"name": "By Stage",
+							"item": [
+								{
+									"name": "Find Sales Orders By Stage (Fully Picked)",
+									"id": "c8016e92-e2f1-4bd7-8c3d-ac827235d347",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createdDate<'2024-01-01T00:00:00Z' AND Stage='Fully Picked'",
+											"protocol": "https",
+											"host": [
+												"api",
+												"cin7",
+												"com"
+											],
+											"path": [
+												"api",
+												"v1",
+												"SalesOrders"
+											],
+											"query": [
+												{
+													"key": "where",
+													"value": "createdDate<'2024-01-01T00:00:00Z' AND Stage='Fully Picked'"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find Sales Orders By Stage (not Fully Picked)",
+									"id": "48472c8e-a1e3-468b-85fb-74fdf2d16b85",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createdDate<'2024-01-01T00:00:00Z' AND (Stage='Awaiting Payment' OR Stage='Declined' OR Stage='On Hold' OR Stage='Cancelled')\n",
+											"protocol": "https",
+											"host": [
+												"api",
+												"cin7",
+												"com"
+											],
+											"path": [
+												"api",
+												"v1",
+												"SalesOrders"
+											],
+											"query": [
+												{
+													"key": "where",
+													"value": "createdDate<'2024-01-01T00:00:00Z' AND (Stage='Awaiting Payment' OR Stage='Declined' OR Stage='On Hold' OR Stage='Cancelled')\n"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find Sales Orders By Stage (Dispatched)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
+												"exec": [
+													"var template = `",
+													"<style type=\"text/css\">",
+													"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+													"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+													"    .tftable tr {background-color:#ffffff;}",
+													"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+													"    .tftable tr:hover {background-color:#e0ffff;}",
+													"</style>",
+													"",
+													"<table class=\"tftable\" border=\"1\">",
+													"    <tr>",
+													"        <th>ID</th>",
+													"        <th>Created Date</th>",
+													"        <th>Modified Date</th>",
+													"        <th>First Name</th>",
+													"        <th>Last Name</th>",
+													"        <th>Email</th>",
+													"        <th>Phone</th>",
+													"        <th>Delivery City</th>",
+													"        <th>Delivery Country</th>",
+													"        <th>Total</th>",
+													"    </tr>",
+													"    ",
+													"    {{#each response}}",
+													"        <tr id=row_{{@key}}>",
+													"            <td>{{id}}</td>",
+													"            <td>{{createdDate}}</td>",
+													"            <td>{{modifiedDate}}</td>",
+													"            <td>{{firstName}}</td>",
+													"            <td>{{lastName}}</td>",
+													"            <td>{{email}}</td>",
+													"            <td>{{phone}}</td>",
+													"            <td>{{deliveryCity}}</td>",
+													"            <td>{{deliveryCountry}}</td>",
+													"            <td>{{total}}</td>",
+													"        </tr>",
+													"    {{/each}}",
+													"</table>",
+													"`;",
+													"",
+													"function constructVisualizerPayload() {",
+													"    return { response: pm.response.json() }",
+													"}",
+													"",
+													"pm.visualizer.set(template, constructVisualizerPayload());"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"id": "f393dc16-ddce-4f49-ad6d-59e18f8b024b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://api.cin7.com/api/v1/SalesOrders?order=modifiedDate desc&where=stage='Dispatched'",
+											"protocol": "https",
+											"host": [
+												"api",
+												"cin7",
+												"com"
+											],
+											"path": [
+												"api",
+												"v1",
+												"SalesOrders"
+											],
+											"query": [
+												{
+													"key": "where",
+													"value": "\"CreatedOn ge 2024-04-14 and CreatedOn le 2024-04-15\"",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "order",
+													"value": "modifiedDate desc",
+													"description": "\n"
+												},
+												{
+													"key": "fields",
+													"value": "Id,OrderNumber,CreatedOn,Status",
+													"disabled": true
+												},
+												{
+													"key": "where",
+													"value": "stage='Dispatched'"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "c215f8a7-4d9a-4218-a157-d5bf2e7a76c8"
 						},
 						{
 							"name": "Get Sales Orders (most Recent)",
@@ -630,7 +1067,52 @@
 							"response": []
 						},
 						{
-							"name": "Find Sales Order By Info",
+							"name": "Get Sales Order by ID",
+							"id": "beca9fa9-0598-4597-abb3-db4b366a820a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "https://api.cin7.com/api/v1/SalesOrders/32584"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Sales Order By Ref #",
+							"id": "4292fb81-a526-4be5-b7cb-79ca2f760116",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=reference='JHAZ609-1'",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"SalesOrders"
+									],
+									"query": [
+										{
+											"key": "where",
+											"value": "reference='JHAZ609-1'"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Sales Order By Info",
 							"id": "6fb4aebb-cdba-4fac-9bcc-0414835ff873",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -662,7 +1144,7 @@
 							"response": []
 						},
 						{
-							"name": "Find Sales Orders By Created Date",
+							"name": "Get Sales Orders By Created Date",
 							"event": [
 								{
 									"listen": "test",
@@ -768,318 +1250,131 @@
 								}
 							},
 							"response": []
-						},
+						}
+					],
+					"id": "8da367d4-4315-4e15-8a41-91a3e05d3441"
+				},
+				{
+					"name": "Update Sales Orders",
+					"item": [
 						{
-							"name": "Find Sales Order By Stage (Fully Picked)",
-							"id": "c8016e92-e2f1-4bd7-8c3d-ac827235d347",
+							"name": "Update Sales Order",
+							"id": "95e320de-2ee1-42a7-adbb-8ab783d6c69c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createdDate<'2024-01-01T00:00:00Z' AND Stage='Fully Picked'",
-									"protocol": "https",
-									"host": [
-										"api",
-										"cin7",
-										"com"
-									],
-									"path": [
-										"api",
-										"v1",
-										"SalesOrders"
-									],
-									"query": [
-										{
-											"key": "where",
-											"value": "createdDate<'2024-01-01T00:00:00Z' AND Stage='Fully Picked'"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Find Sales Order By Stage (not Fully Picked)",
-							"id": "48472c8e-a1e3-468b-85fb-74fdf2d16b85",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createdDate<'2024-01-01T00:00:00Z' AND (Stage='Awaiting Payment' OR Stage='Declined' OR Stage='On Hold' OR Stage='Cancelled')\n",
-									"protocol": "https",
-									"host": [
-										"api",
-										"cin7",
-										"com"
-									],
-									"path": [
-										"api",
-										"v1",
-										"SalesOrders"
-									],
-									"query": [
-										{
-											"key": "where",
-											"value": "createdDate<'2024-01-01T00:00:00Z' AND (Stage='Awaiting Payment' OR Stage='Declined' OR Stage='On Hold' OR Stage='Cancelled')\n"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "SalesOrders - Chillers",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
-										"exec": [
-											"var template = `",
-											"<style type=\"text/css\">",
-											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-											"    .tftable tr {background-color:#ffffff;}",
-											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-											"    .tftable tr:hover {background-color:#e0ffff;}",
-											"</style>",
-											"",
-											"<table class=\"tftable\" border=\"1\">",
-											"    <tr>",
-											"        <th>ID</th>",
-											"        <th>Created Date</th>",
-											"        <th>Modified Date</th>",
-											"        <th>First Name</th>",
-											"        <th>Last Name</th>",
-											"        <th>Email</th>",
-											"        <th>Phone</th>",
-											"        <th>Delivery City</th>",
-											"        <th>Delivery Country</th>",
-											"        <th>Total</th>",
-											"    </tr>",
-											"    ",
-											"    {{#each response}}",
-											"        <tr id=row_{{@key}}>",
-											"            <td>{{id}}</td>",
-											"            <td>{{createdDate}}</td>",
-											"            <td>{{modifiedDate}}</td>",
-											"            <td>{{firstName}}</td>",
-											"            <td>{{lastName}}</td>",
-											"            <td>{{email}}</td>",
-											"            <td>{{phone}}</td>",
-											"            <td>{{deliveryCity}}</td>",
-											"            <td>{{deliveryCountry}}</td>",
-											"            <td>{{total}}</td>",
-											"        </tr>",
-											"    {{/each}}",
-											"</table>",
-											"`;",
-											"",
-											"function constructVisualizerPayload() {",
-											"    return { response: pm.response.json() }",
-											"}",
-											"",
-											"pm.visualizer.set(template, constructVisualizerPayload());"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "32b86116-facf-4dcf-a75a-9053a40b9f5b",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
+								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=createddate>'2024-12-31T23:59:59Z'&order=CreatedDate ASC&fields=Id,CreatedDate,Status,LineItems(code,name,qty)&page=5&rows=200",
-									"protocol": "https",
-									"host": [
-										"api",
-										"cin7",
-										"com"
-									],
-									"path": [
-										"api",
-										"v1",
-										"SalesOrders"
-									],
-									"query": [
-										{
-											"key": "where",
-											"value": "createddate>'2024-12-31T23:59:59Z'"
-										},
-										{
-											"key": "order",
-											"value": "CreatedDate ASC",
-											"description": "\n"
-										},
-										{
-											"key": "fields",
-											"value": "Id,CreatedDate,Status,LineItems(code,name,qty)"
-										},
-										{
-											"key": "page",
-											"value": "5"
-										},
-										{
-											"key": "rows",
-											"value": "200"
+									"raw": "[\n  {\n    \"id\": 14205,\n    \"dispatchedDate\": \"2023-12-31T01:02:00Z\",\n    \"trackingCode\": \"1234567890\",\n    \"logisticsCarrier\": \"JH\",\n    \"deliveryInstructions\": \"Auto-fulfilled 04-15-25 cleanup\",\n    \"estimatedDeliveryDate\": \"2025-05-25T01:02:00Z\",\n    \"customFields\": {\n        \"orders_1002\": \"$200.00\"\n    }\n  }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "SalesOrders where Stage",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "8265f4dd-da1e-43bf-b774-423c077a965b",
-										"exec": [
-											"var template = `",
-											"<style type=\"text/css\">",
-											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-											"    .tftable tr {background-color:#ffffff;}",
-											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-											"    .tftable tr:hover {background-color:#e0ffff;}",
-											"</style>",
-											"",
-											"<table class=\"tftable\" border=\"1\">",
-											"    <tr>",
-											"        <th>ID</th>",
-											"        <th>Created Date</th>",
-											"        <th>Modified Date</th>",
-											"        <th>First Name</th>",
-											"        <th>Last Name</th>",
-											"        <th>Email</th>",
-											"        <th>Phone</th>",
-											"        <th>Delivery City</th>",
-											"        <th>Delivery Country</th>",
-											"        <th>Total</th>",
-											"    </tr>",
-											"    ",
-											"    {{#each response}}",
-											"        <tr id=row_{{@key}}>",
-											"            <td>{{id}}</td>",
-											"            <td>{{createdDate}}</td>",
-											"            <td>{{modifiedDate}}</td>",
-											"            <td>{{firstName}}</td>",
-											"            <td>{{lastName}}</td>",
-											"            <td>{{email}}</td>",
-											"            <td>{{phone}}</td>",
-											"            <td>{{deliveryCity}}</td>",
-											"            <td>{{deliveryCountry}}</td>",
-											"            <td>{{total}}</td>",
-											"        </tr>",
-											"    {{/each}}",
-											"</table>",
-											"`;",
-											"",
-											"function constructVisualizerPayload() {",
-											"    return { response: pm.response.json() }",
-											"}",
-											"",
-											"pm.visualizer.set(template, constructVisualizerPayload());"
-										],
-										"type": "text/javascript"
 									}
-								}
-							],
-							"id": "f393dc16-ddce-4f49-ad6d-59e18f8b024b",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://api.cin7.com/api/v1/SalesOrders?order=modifiedDate desc&where=stage='Dispatched'",
-									"protocol": "https",
-									"host": [
-										"api",
-										"cin7",
-										"com"
-									],
-									"path": [
-										"api",
-										"v1",
-										"SalesOrders"
-									],
-									"query": [
-										{
-											"key": "where",
-											"value": "\"CreatedOn ge 2024-04-14 and CreatedOn le 2024-04-15\"",
-											"type": "text",
-											"disabled": true
-										},
-										{
-											"key": "order",
-											"value": "modifiedDate desc",
-											"description": "\n"
-										},
-										{
-											"key": "fields",
-											"value": "Id,OrderNumber,CreatedOn,Status",
-											"disabled": true
-										},
-										{
-											"key": "where",
-											"value": "stage='Dispatched'"
-										}
-									]
-								}
+								},
+								"url": "https://api.cin7.com/api/v1/SalesOrders"
 							},
 							"response": []
 						},
 						{
-							"name": "Find Sales Order By Ref #",
-							"id": "4292fb81-a526-4be5-b7cb-79ca2f760116",
+							"name": "Void a Sales Order",
+							"id": "fdcd5cb4-2550-4044-8694-7c45c6ab4347",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
+								"method": "PUT",
 								"header": [],
-								"url": {
-									"raw": "https://api.cin7.com/api/v1/SalesOrders?where=reference='JHAZ609-1'",
-									"protocol": "https",
-									"host": [
-										"api",
-										"cin7",
-										"com"
-									],
-									"path": [
-										"api",
-										"v1",
-										"SalesOrders"
-									],
-									"query": [
-										{
-											"key": "where",
-											"value": "reference='JHAZ609-1'"
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"id\": 9926,\n    \"isVoid\": true\n  }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
-								}
+									}
+								},
+								"url": "https://api.cin7.com/api/v1/SalesOrders"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Sales Order - Close Status for Amazon FBA",
+							"id": "eb994166-00d0-41b5-944b-2a0be7447158",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"id\": 30676,\n    \"dispatchedDate\": \"2025-03-26T01:02:00Z\",\n    \"deliveryInstructions\": \"AMZN-FBA\",\n    \"estimatedDeliveryDate\": \"2025-03-31T01:02:00Z\"\n  }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://api.cin7.com/api/v1/SalesOrders"
 							},
 							"response": []
 						}
 					],
-					"id": "8da367d4-4315-4e15-8a41-91a3e05d3441"
+					"id": "0d6606be-e386-4ae3-99af-751f8e912a56"
+				},
+				{
+					"name": "Create Sales Orders",
+					"item": [
+						{
+							"name": "Create Sales Order",
+							"id": "283e186c-7c74-4d5c-a351-a218f53737e1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"reference\": \"JOHNH-TEST-281\",\n    \"memberId\": 344,\n    \"company\": \"JHaze\",\n    \"email\": \"john@johnhazel.com\",\n    \"deliveryFirstName\": \"John TEST\",\n    \"deliveryLastName\": \"Hazel TEST\",\n    \"deliveryCompany\": \"Company TEST\",\n    \"deliveryAddress1\": \"Delivery Address Line 1\",\n    \"deliveryCity\": \"Delivery City\",\n    \"deliveryState\": \"Delivery State\",\n    \"deliveryPostalCode\": \"Postal Code\",\n    \"deliveryCountry\": \"USA\",\n    \"billingCompany\": \"Alex's Company\",\n    \"billingAddress1\": \"BillingAddress1\",\n    \"billingCity\": \"BillingCity\",\n    \"billingPostalCode\": \"BillingPostalCode\",\n    \"billingState\": \"BillingState\",\n    \"billingCountry\": \"USA\",\n    \"projectName\": \"\",\n    \"trackingCode\": \"\",\n    \"internalComments\": \"\",\n    \"productTotal\": 1096.0000,\n    \"freightTotal\": 10.0000,\n    \"freightDescription\": \"FEDEX\",\n    \"total\": 1101.0000,\n    \"taxStatus\": \"Exempt\",\n    \"taxRate\": 0.0,\n    \"customFields\": {\n      \"orders_1000\": \"John Hazel\", // INPUT BY\n      \"orders_1001\": \"11/22/2024\", // SHIP BY (Date)\n      \"orders_1002\": 100.00 // Freight Cost\n    },\n    \"isVoid\": false,\n    \"deliveryInstructions\": \"Leave at the door, beware the dog.\",\n    \"status\": \"OPEN\",\n    \"stage\": \"New\",\n    \"lineItems\": [\n      {\n        \"code\": \"Ib/500/Syn/Bl/Bar\"\n      }\n    ]\n  }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://api.cin7.com/api/v1/SalesOrders"
+							},
+							"response": []
+						},
+						{
+							"name": "Create Sales Order Minimum Fields",
+							"id": "6b4a3435-4dfa-4fc0-8b01-60b42d8363ae",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"firstName\":\"Johnny\",\n    \"lastName\":\"Hazey\",\n    \"company\": \"JHaze\",\n    \"memberEmail\": \"john@johnhazel.com\",\n    \"email\": \"john@johnhazel.com\",\n    \"deliveryFirstName\": \"John TEST\",\n    \"deliveryLastName\": \"Hazel TEST\",\n    \"deliveryCompany\": \"Company TEST\",\n    \"deliveryAddress1\": \"Delivery Address Line 1\",\n    \"deliveryCity\": \"Delivery City\",\n    \"deliveryState\": \"Delivery State\",\n    \"deliveryPostalCode\": \"Postal Code\",\n    \"deliveryCountry\": \"USA\",\n    \"billingCompany\": \"Alex's Company\",\n    \"billingAddress1\": \"BillingAddress1\",\n    \"billingCity\": \"BillingCity\",\n    \"billingPostalCode\": \"BillingPostalCode\",\n    \"billingState\": \"BillingState\",\n    \"billingCountry\": \"USA\",\n    \"internalComments\": \"\",\n    \"isVoid\": false,\n    \"deliveryInstructions\": \"Leave at the door, beware the dog.\",\n    \"status\": \"OPEN\",\n    \"stage\": \"New\",\n    \"customFields\": {\n      \"orders_1001\": \"11/22/2024\"\n    },\n    \"lineItems\": [\n      {\n        \"code\": \"Ib/500/Syn/Bl/Bar\",\n        \"option3\": \"X Variant\"\n      }\n    ]\n  }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://api.cin7.com/api/v1/SalesOrders"
+							},
+							"response": []
+						}
+					],
+					"id": "ae8e8405-7f5f-4cb3-8f8b-496fcf3050a1"
 				},
 				{
 					"name": "Products",
@@ -1229,739 +1524,474 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Create Sales Order",
-					"id": "283e186c-7c74-4d5c-a351-a218f53737e1",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n  {\n    \"reference\": \"JOHNH-TEST-281\",\n    \"memberId\": 344,\n    \"company\": \"JHaze\",\n    \"email\": \"john@johnhazel.com\",\n    \"deliveryFirstName\": \"John TEST\",\n    \"deliveryLastName\": \"Hazel TEST\",\n    \"deliveryCompany\": \"Company TEST\",\n    \"deliveryAddress1\": \"Delivery Address Line 1\",\n    \"deliveryCity\": \"Delivery City\",\n    \"deliveryState\": \"Delivery State\",\n    \"deliveryPostalCode\": \"Postal Code\",\n    \"deliveryCountry\": \"USA\",\n    \"billingCompany\": \"Alex's Company\",\n    \"billingAddress1\": \"BillingAddress1\",\n    \"billingCity\": \"BillingCity\",\n    \"billingPostalCode\": \"BillingPostalCode\",\n    \"billingState\": \"BillingState\",\n    \"billingCountry\": \"USA\",\n    \"projectName\": \"\",\n    \"trackingCode\": \"\",\n    \"internalComments\": \"\",\n    \"productTotal\": 1096.0000,\n    \"freightTotal\": 10.0000,\n    \"freightDescription\": \"FEDEX\",\n    \"total\": 1101.0000,\n    \"taxStatus\": \"Exempt\",\n    \"taxRate\": 0.0,\n    \"customFields\": {\n      \"orders_1000\": \"John Hazel\", // INPUT BY\n      \"orders_1001\": \"11/22/2024\", // SHIP BY (Date)\n      \"orders_1002\": 100.00 // Freight Cost\n    },\n    \"isVoid\": false,\n    \"deliveryInstructions\": \"Leave at the door, beware the dog.\",\n    \"status\": \"OPEN\",\n    \"stage\": \"New\",\n    \"lineItems\": [\n      {\n        \"code\": \"Ib/500/Syn/Bl/Bar\"\n      }\n    ]\n  }\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://api.cin7.com/api/v1/SalesOrders"
-					},
-					"response": []
-				},
-				{
-					"name": "Create Sales Order Minimum Fields",
-					"id": "6b4a3435-4dfa-4fc0-8b01-60b42d8363ae",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n  {\n    \"firstName\":\"Johnny\",\n    \"lastName\":\"Hazey\",\n    \"company\": \"JHaze\",\n    \"memberEmail\": \"john@johnhazel.com\",\n    \"email\": \"john@johnhazel.com\",\n    \"deliveryFirstName\": \"John TEST\",\n    \"deliveryLastName\": \"Hazel TEST\",\n    \"deliveryCompany\": \"Company TEST\",\n    \"deliveryAddress1\": \"Delivery Address Line 1\",\n    \"deliveryCity\": \"Delivery City\",\n    \"deliveryState\": \"Delivery State\",\n    \"deliveryPostalCode\": \"Postal Code\",\n    \"deliveryCountry\": \"USA\",\n    \"billingCompany\": \"Alex's Company\",\n    \"billingAddress1\": \"BillingAddress1\",\n    \"billingCity\": \"BillingCity\",\n    \"billingPostalCode\": \"BillingPostalCode\",\n    \"billingState\": \"BillingState\",\n    \"billingCountry\": \"USA\",\n    \"internalComments\": \"\",\n    \"isVoid\": false,\n    \"deliveryInstructions\": \"Leave at the door, beware the dog.\",\n    \"status\": \"OPEN\",\n    \"stage\": \"New\",\n    \"customFields\": {\n      \"orders_1001\": \"11/22/2024\"\n    },\n    \"lineItems\": [\n      {\n        \"code\": \"Ib/500/Syn/Bl/Bar\",\n        \"option3\": \"X Variant\"\n      }\n    ]\n  }\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://api.cin7.com/api/v1/SalesOrders"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Sales Order by ID",
-					"id": "beca9fa9-0598-4597-abb3-db4b366a820a",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "https://api.cin7.com/api/v1/SalesOrders/32584"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Sales Order",
-					"id": "95e320de-2ee1-42a7-adbb-8ab783d6c69c",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n  {\n    \"id\": 14205,\n    \"dispatchedDate\": \"2023-12-31T01:02:00Z\",\n    \"trackingCode\": \"1234567890\",\n    \"logisticsCarrier\": \"JH\",\n    \"deliveryInstructions\": \"Auto-fulfilled 04-15-25 cleanup\",\n    \"estimatedDeliveryDate\": \"2025-05-25T01:02:00Z\",\n    \"customFields\": {\n        \"orders_1002\": \"$200.00\"\n    }\n  }\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://api.cin7.com/api/v1/SalesOrders"
-					},
-					"response": []
-				},
-				{
-					"name": "Void a Sales Order",
-					"id": "fdcd5cb4-2550-4044-8694-7c45c6ab4347",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n  {\n    \"id\": 9926,\n    \"isVoid\": true\n  }\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://api.cin7.com/api/v1/SalesOrders"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Sales Order - Close Status for Amazon FBA",
-					"id": "eb994166-00d0-41b5-944b-2a0be7447158",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n  {\n    \"id\": 30676,\n    \"dispatchedDate\": \"2025-03-26T01:02:00Z\",\n    \"deliveryInstructions\": \"AMZN-FBA\",\n    \"estimatedDeliveryDate\": \"2025-03-31T01:02:00Z\"\n  }\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://api.cin7.com/api/v1/SalesOrders"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Best Buy Sales Orders",
-					"id": "3236cf26-6b23-4934-9dee-2cce75c5a459",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=Company='Best Buy USA' OR DeliveryFirstName='Best Buy USA' OR Company='Best Buy USA' OR BillingCompany='Best Buy Purchasing LLC'",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "Company='Best Buy USA' OR DeliveryFirstName='Best Buy USA' OR Company='Best Buy USA' OR BillingCompany='Best Buy Purchasing LLC'"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Costco Sales Orders",
-					"id": "83dee012-dd86-453b-a6c4-bee515edac3c",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=Company='Costco'",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "Company='Costco'"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Texas Costco Sales Orders",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "69e3910f-aef9-4675-8a3d-f47380a34dd8",
-								"exec": [
-									"var template = `",
-									"<style type=\"text/css\">",
-									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
-									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
-									"    .tftable tr {background-color:#ffffff;}",
-									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
-									"    .tftable tr:hover {background-color:#e0ffff;}",
-									"</style>",
-									"",
-									"<table class=\"tftable\" border=\"1\">",
-									"    <tr>",
-									"        <th>ID</th>",
-									"        <th>Created Date</th>",
-									"        <th>Modified Date</th>",
-									"        <th>Company</th>",
-									"        <th>Delivery City</th>",
-									"        <th>Delivery State</th>",
-									"        <th>Delivery Postal Code</th>",
-									"        <th>Total</th>",
-									"    </tr>",
-									"    ",
-									"    {{#each response}}",
-									"        <tr id=row_{{@key}}>",
-									"            <td>{{id}}</td>",
-									"            <td>{{createdDate}}</td>",
-									"            <td>{{modifiedDate}}</td>",
-									"            <td>{{company}}</td>",
-									"            <td>{{deliveryCity}}</td>",
-									"            <td>{{deliveryState}}</td>",
-									"            <td>{{deliveryPostalCode}}</td>",
-									"            <td>{{total}}</td>",
-									"        </tr>",
-									"    {{/each}}",
-									"</table>",
-									"`;",
-									"",
-									"function constructVisualizerPayload() {",
-									"    return { response: pm.response.json() }",
-									"}",
-									"",
-									"pm.visualizer.set(template, constructVisualizerPayload());"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "37f3b104-83a4-4268-a472-44e15ee2b4d0",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/SalesOrders?where=Company='Costco' AND DeliveryState='TX'",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"SalesOrders"
-							],
-							"query": [
-								{
-									"key": "where",
-									"value": "Company='Costco' AND DeliveryState='TX'"
-								}
-							]
-						}
-					},
-					"response": []
 				}
 			],
 			"id": "09396e23-1f88-4b0d-9b92-4c5a96d2ee0e"
 		},
 		{
-			"name": "Contacts",
+			"name": "Other Requests",
 			"item": [
 				{
-					"name": "Get Contact by ID",
-					"id": "7af10016-4de2-4eaf-963d-0314cc7f8326",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"url": "https://api.cin7.com/api/v1/Contacts/551"
-					},
-					"response": []
-				},
-				{
-					"name": "Get List of Contacts",
-					"id": "17b486f9-0652-4e73-aee5-d2b8044e11d6",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
+					"name": "Contacts",
+					"item": [
+						{
+							"name": "Get Contact by ID",
+							"id": "7af10016-4de2-4eaf-963d-0314cc7f8326",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
 							},
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
-							}
-						],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/Contacts?fields=id,company,firstName,lastName&where=type='Customer'&order=createdDate ASC&page=1&rows=50",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"Contacts"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "id,company,firstName,lastName"
-								},
-								{
-									"key": "where",
-									"value": "type='Customer'"
-								},
-								{
-									"key": "order",
-									"value": "createdDate ASC"
-								},
-								{
-									"key": "page",
-									"value": "1"
-								},
-								{
-									"key": "rows",
-									"value": "50"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Contacts",
-					"id": "cbe4b16a-cef8-45d5-a09c-07391256d8ec",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": "https://api.cin7.com/api/v1/Contacts/551"
 							},
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n  {\n    \"type\": \"Customer\",\n    \"company\": \"New Customer Co.\",\n    \"firstName\": \"Alice\",\n    \"lastName\": \"Johnson\",\n    \"email\": \"alice@newcustomerco.com\",\n    \"phone\": \"(000) 987-6543\",\n    \"address1\": \"123 New St\",\n    \"city\": \"New City\",\n    \"state\": \"NC\",\n    \"postCode\": \"12345\",\n    \"country\": \"USA\"\n  }\n]"
+							"response": []
 						},
-						"url": "https://api.cin7.com/api/v1/Contacts"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Contacts",
-					"id": "ac4cac5c-f615-4c3f-a2e8-2c1ff4f78fe4",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
+						{
+							"name": "Get List of Contacts",
+							"id": "17b486f9-0652-4e73-aee5-d2b8044e11d6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
 							},
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n  {\n    \"id\": 551,\n    \"type\": \"Customer\",\n    \"company\": \"Updated Customer Co.\",\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"email\": \"jane@updatedcustomerco.com\",\n    \"phone\": \"(000) 123-4567\",\n    \"address1\": \"456 Update St\",\n    \"city\": \"Update City\",\n    \"state\": \"UC\",\n    \"postCode\": \"54321\",\n    \"country\": \"USA\"\n  }\n]"
-						},
-						"url": "https://api.cin7.com/api/v1/Contacts"
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Contact by ID",
-					"id": "f0f4a756-591b-462e-9c81-f27dae64fd22",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
-							}
-						],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/Contacts/{id}",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"Contacts",
-								"{id}"
-							],
-							"variable": [
-								{
-									"id": "56c302be-5748-4492-a1f6-86d8c4f3392f",
-									"key": "id",
-									"value": "551"
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
+									}
+								],
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/Contacts?fields=id,company,firstName,lastName&where=type='Customer'&order=createdDate ASC&page=1&rows=50",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Contacts"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "id,company,firstName,lastName"
+										},
+										{
+											"key": "where",
+											"value": "type='Customer'"
+										},
+										{
+											"key": "order",
+											"value": "createdDate ASC"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "rows",
+											"value": "50"
+										}
+									]
 								}
-							]
+							},
+							"response": []
+						},
+						{
+							"name": "Create Contacts",
+							"id": "cbe4b16a-cef8-45d5-a09c-07391256d8ec",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"type\": \"Customer\",\n    \"company\": \"New Customer Co.\",\n    \"firstName\": \"Alice\",\n    \"lastName\": \"Johnson\",\n    \"email\": \"alice@newcustomerco.com\",\n    \"phone\": \"(000) 987-6543\",\n    \"address1\": \"123 New St\",\n    \"city\": \"New City\",\n    \"state\": \"NC\",\n    \"postCode\": \"12345\",\n    \"country\": \"USA\"\n  }\n]"
+								},
+								"url": "https://api.cin7.com/api/v1/Contacts"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Contacts",
+							"id": "ac4cac5c-f615-4c3f-a2e8-2c1ff4f78fe4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"id\": 551,\n    \"type\": \"Customer\",\n    \"company\": \"Updated Customer Co.\",\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Doe\",\n    \"email\": \"jane@updatedcustomerco.com\",\n    \"phone\": \"(000) 123-4567\",\n    \"address1\": \"456 Update St\",\n    \"city\": \"Update City\",\n    \"state\": \"UC\",\n    \"postCode\": \"54321\",\n    \"country\": \"USA\"\n  }\n]"
+								},
+								"url": "https://api.cin7.com/api/v1/Contacts"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Contact by ID",
+							"id": "f0f4a756-591b-462e-9c81-f27dae64fd22",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS"
+									}
+								],
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/Contacts/{id}",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Contacts",
+										"{id}"
+									],
+									"variable": [
+										{
+											"id": "56c302be-5748-4492-a1f6-86d8c4f3392f",
+											"key": "id",
+											"value": "551"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					],
+					"id": "5e05537a-e73d-45f8-93ee-be9bc57e4305"
+				},
+				{
+					"name": "Branches",
+					"item": [
+						{
+							"name": "Get Branch by ID",
+							"id": "ee30b084-0f15-4e83-ae5f-6e9b5035e5e0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
+										"type": "text"
+									}
+								],
+								"url": "https://api.cin7.com/api/v1/Branches/3"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Branches List",
+							"id": "2c9ff52b-3487-4e08-b4c1-bb0f146763fb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/Branches?fields=*&where=&order=&page=1&rows=50",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Branches"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "*"
+										},
+										{
+											"key": "where",
+											"value": ""
+										},
+										{
+											"key": "order",
+											"value": ""
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "rows",
+											"value": "50"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Branch",
+							"id": "1882b12d-4449-4111-a8e5-56f2c7d2d8fa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"BranchType\": \"Retail\",\n  \"StockControlOptions\": \"Automatic\",\n  \"TaxStatus\": \"Taxable\",\n  \"AccountNumber\": \"123456\",\n  \"BranchLocations\": [\n    {\n      \"zone\": \"Warehouse\",\n      \"bins\": [\n        \"A1\",\n        \"A2\"\n      ]\n    }\n  ],\n  \"Company\": \"New Branch Company\",\n  \"FirstName\": \"John\",\n  \"LastName\": \"Doe\",\n  \"JobTitle\": \"Manager\",\n  \"Email\": \"john.doe@example.com\",\n  \"Website\": \"http://example.com\",\n  \"Phone\": \"123-456-7890\",\n  \"Fax\": \"123-456-7890\",\n  \"Mobile\": \"123-456-7890\",\n  \"Address1\": \"123 Main St\",\n  \"Address2\": \"Suite 100\",\n  \"City\": \"Somewhere\",\n  \"State\": \"CA\",\n  \"PostCode\": \"90001\",\n  \"Country\": \"USA\",\n  \"PostalAddress1\": \"123 Main St\",\n  \"PostalAddress2\": \"Suite 100\",\n  \"PostalCity\": \"Somewhere\",\n  \"PostalState\": \"CA\",\n  \"PostalPostCode\": \"90001\",\n  \"PostalCountry\": \"USA\",\n  \"Notes\": \"New branch notes\",\n  \"IntegrationRef\": \"123-ABC\",\n  \"CustomFields\": {},\n  \"SecondaryContacts\": []\n}"
+								},
+								"url": "https://api.cin7.com/api/v1/Branches"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Branch",
+							"id": "c5281ec0-d61f-4b86-9670-06fcc54eaa3b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"id\": 1,\n    \"BranchType\": \"Retail\",\n    \"StockControlOptions\": \"Manual\",\n    \"TaxStatus\": \"Non-Taxable\",\n    \"AccountNumber\": \"654321\",\n    \"BranchLocations\": [\n      {\n        \"zone\": \"New Zone\",\n        \"bins\": [\n          \"B1\",\n          \"B2\"\n        ]\n      }\n    ],\n    \"Company\": \"Updated Branch Company\",\n    \"FirstName\": \"Jane\",\n    \"LastName\": \"Smith\",\n    \"JobTitle\": \"Director\",\n    \"Email\": \"jane.smith@example.com\",\n    \"Website\": \"http://example.com\",\n    \"Phone\": \"987-654-3210\",\n    \"Fax\": \"987-654-3210\",\n    \"Mobile\": \"987-654-3210\",\n    \"Address1\": \"456 Another St\",\n    \"Address2\": \"Suite 200\",\n    \"City\": \"Elsewhere\",\n    \"State\": \"NY\",\n    \"PostCode\": \"10001\",\n    \"Country\": \"USA\",\n    \"PostalAddress1\": \"456 Another St\",\n    \"PostalAddress2\": \"Suite 200\",\n    \"PostalCity\": \"Elsewhere\",\n    \"PostalState\": \"NY\",\n    \"PostalPostCode\": \"10001\",\n    \"PostalCountry\": \"USA\",\n    \"Notes\": \"Updated branch notes\",\n    \"IntegrationRef\": \"456-DEF\",\n    \"CustomFields\": {},\n    \"SecondaryContacts\": []\n  }\n]"
+								},
+								"url": "https://api.cin7.com/api/v1/Branches"
+							},
+							"response": []
+						}
+					],
+					"id": "c74995a2-9fb2-4fb3-b2b0-49d36d73d5d3"
+				},
+				{
+					"name": "Product Categories",
+					"item": [
+						{
+							"name": "Get Product Category by ID",
+							"id": "b7a6193e-937e-464a-8492-ffdeedd8bef9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
+										"type": "text"
+									}
+								],
+								"url": "https://api.cin7.com/api/v1/ProductCategories/23"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product Categories List",
+							"id": "7fe161e7-c555-40b6-a894-b7a2678ffb65",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api.cin7.com/api/v1/ProductCategories?fields=*&where=&order=&page=1&rows=50",
+									"protocol": "https",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"ProductCategories"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "*"
+										},
+										{
+											"key": "where",
+											"value": ""
+										},
+										{
+											"key": "order",
+											"value": ""
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "rows",
+											"value": "50"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "f648199c-33d5-4a9f-8e1a-a29df9651261"
+				},
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Get Product by ID",
+							"id": "ecc798ca-d6d0-43b1-88cd-15b37b346f1a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "api.cin7.com/api/v1/Products/10"
+							},
+							"response": []
+						},
+						{
+							"name": "Get List of Products",
+							"id": "8d042388-281c-440d-a3c2-9e6c184a1074",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "api.cin7.com/api/v1/Products?page=1&rows=50",
+									"host": [
+										"api",
+										"cin7",
+										"com"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Products"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "where",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "rows",
+											"value": "50"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "763dec2b-a57b-42e4-94df-5c883f8a405a"
 				}
 			],
-			"id": "5e05537a-e73d-45f8-93ee-be9bc57e4305"
-		},
-		{
-			"name": "Branches",
-			"item": [
-				{
-					"name": "Get Branch by ID",
-					"id": "ee30b084-0f15-4e83-ae5f-6e9b5035e5e0",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
-								"type": "text"
-							}
-						],
-						"url": "https://api.cin7.com/api/v1/Branches/3"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Branches List",
-					"id": "2c9ff52b-3487-4e08-b4c1-bb0f146763fb",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/Branches?fields=*&where=&order=&page=1&rows=50",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"Branches"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "*"
-								},
-								{
-									"key": "where",
-									"value": ""
-								},
-								{
-									"key": "order",
-									"value": ""
-								},
-								{
-									"key": "page",
-									"value": "1"
-								},
-								{
-									"key": "rows",
-									"value": "50"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Branch",
-					"id": "1882b12d-4449-4111-a8e5-56f2c7d2d8fa",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"BranchType\": \"Retail\",\n  \"StockControlOptions\": \"Automatic\",\n  \"TaxStatus\": \"Taxable\",\n  \"AccountNumber\": \"123456\",\n  \"BranchLocations\": [\n    {\n      \"zone\": \"Warehouse\",\n      \"bins\": [\n        \"A1\",\n        \"A2\"\n      ]\n    }\n  ],\n  \"Company\": \"New Branch Company\",\n  \"FirstName\": \"John\",\n  \"LastName\": \"Doe\",\n  \"JobTitle\": \"Manager\",\n  \"Email\": \"john.doe@example.com\",\n  \"Website\": \"http://example.com\",\n  \"Phone\": \"123-456-7890\",\n  \"Fax\": \"123-456-7890\",\n  \"Mobile\": \"123-456-7890\",\n  \"Address1\": \"123 Main St\",\n  \"Address2\": \"Suite 100\",\n  \"City\": \"Somewhere\",\n  \"State\": \"CA\",\n  \"PostCode\": \"90001\",\n  \"Country\": \"USA\",\n  \"PostalAddress1\": \"123 Main St\",\n  \"PostalAddress2\": \"Suite 100\",\n  \"PostalCity\": \"Somewhere\",\n  \"PostalState\": \"CA\",\n  \"PostalPostCode\": \"90001\",\n  \"PostalCountry\": \"USA\",\n  \"Notes\": \"New branch notes\",\n  \"IntegrationRef\": \"123-ABC\",\n  \"CustomFields\": {},\n  \"SecondaryContacts\": []\n}"
-						},
-						"url": "https://api.cin7.com/api/v1/Branches"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Branch",
-					"id": "c5281ec0-d61f-4b86-9670-06fcc54eaa3b",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n  {\n    \"id\": 1,\n    \"BranchType\": \"Retail\",\n    \"StockControlOptions\": \"Manual\",\n    \"TaxStatus\": \"Non-Taxable\",\n    \"AccountNumber\": \"654321\",\n    \"BranchLocations\": [\n      {\n        \"zone\": \"New Zone\",\n        \"bins\": [\n          \"B1\",\n          \"B2\"\n        ]\n      }\n    ],\n    \"Company\": \"Updated Branch Company\",\n    \"FirstName\": \"Jane\",\n    \"LastName\": \"Smith\",\n    \"JobTitle\": \"Director\",\n    \"Email\": \"jane.smith@example.com\",\n    \"Website\": \"http://example.com\",\n    \"Phone\": \"987-654-3210\",\n    \"Fax\": \"987-654-3210\",\n    \"Mobile\": \"987-654-3210\",\n    \"Address1\": \"456 Another St\",\n    \"Address2\": \"Suite 200\",\n    \"City\": \"Elsewhere\",\n    \"State\": \"NY\",\n    \"PostCode\": \"10001\",\n    \"Country\": \"USA\",\n    \"PostalAddress1\": \"456 Another St\",\n    \"PostalAddress2\": \"Suite 200\",\n    \"PostalCity\": \"Elsewhere\",\n    \"PostalState\": \"NY\",\n    \"PostalPostCode\": \"10001\",\n    \"PostalCountry\": \"USA\",\n    \"Notes\": \"Updated branch notes\",\n    \"IntegrationRef\": \"456-DEF\",\n    \"CustomFields\": {},\n    \"SecondaryContacts\": []\n  }\n]"
-						},
-						"url": "https://api.cin7.com/api/v1/Branches"
-					},
-					"response": []
-				}
-			],
-			"id": "c74995a2-9fb2-4fb3-b2b0-49d36d73d5d3"
-		},
-		{
-			"name": "Product Categories",
-			"item": [
-				{
-					"name": "Get Product Category by ID",
-					"id": "b7a6193e-937e-464a-8492-ffdeedd8bef9",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
-								"type": "text"
-							}
-						],
-						"url": "https://api.cin7.com/api/v1/ProductCategories/23"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Product Categories List",
-					"id": "7fe161e7-c555-40b6-a894-b7a2678ffb65",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic YOUR_BASE64_ENCODED_CREDENTIALS",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.cin7.com/api/v1/ProductCategories?fields=*&where=&order=&page=1&rows=50",
-							"protocol": "https",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"ProductCategories"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "*"
-								},
-								{
-									"key": "where",
-									"value": ""
-								},
-								{
-									"key": "order",
-									"value": ""
-								},
-								{
-									"key": "page",
-									"value": "1"
-								},
-								{
-									"key": "rows",
-									"value": "50"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"id": "f648199c-33d5-4a9f-8e1a-a29df9651261"
-		},
-		{
-			"name": "Products",
-			"item": [
-				{
-					"name": "Get Product by ID",
-					"id": "ecc798ca-d6d0-43b1-88cd-15b37b346f1a",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "api.cin7.com/api/v1/Products/10"
-					},
-					"response": []
-				},
-				{
-					"name": "Get List of Products",
-					"id": "8d042388-281c-440d-a3c2-9e6c184a1074",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "api.cin7.com/api/v1/Products?page=1&rows=50",
-							"host": [
-								"api",
-								"cin7",
-								"com"
-							],
-							"path": [
-								"api",
-								"v1",
-								"Products"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": "",
-									"disabled": true
-								},
-								{
-									"key": "where",
-									"value": "",
-									"disabled": true
-								},
-								{
-									"key": "order",
-									"value": "",
-									"disabled": true
-								},
-								{
-									"key": "page",
-									"value": "1"
-								},
-								{
-									"key": "rows",
-									"value": "50"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"id": "763dec2b-a57b-42e4-94df-5c883f8a405a"
+			"id": "bc3ebb64-cb57-4922-b6d3-242c7c21a66d"
 		}
 	],
 	"auth": {
