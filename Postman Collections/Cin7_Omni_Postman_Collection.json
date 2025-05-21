@@ -1352,6 +1352,28 @@
 							"response": []
 						},
 						{
+							"name": "Create Sales Order Copy",
+							"id": "e964979a-0015-4d93-a5f3-0986e3d2e0ca",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"reference\": \"JOHNH-TEST-281\",\n    \"memberId\": 344,\n    \"company\": \"JHaze\",\n    \"email\": \"john@johnhazel.com\",\n    \"deliveryFirstName\": \"John TEST\",\n    \"deliveryLastName\": \"Hazel TEST\",\n    \"deliveryCompany\": \"Company TEST\",\n    \"deliveryAddress1\": \"Delivery Address Line 1\",\n    \"deliveryCity\": \"Delivery City\",\n    \"deliveryState\": \"Delivery State\",\n    \"deliveryPostalCode\": \"Postal Code\",\n    \"deliveryCountry\": \"USA\",\n    \"billingCompany\": \"Alex's Company\",\n    \"billingAddress1\": \"BillingAddress1\",\n    \"billingCity\": \"BillingCity\",\n    \"billingPostalCode\": \"BillingPostalCode\",\n    \"billingState\": \"BillingState\",\n    \"billingCountry\": \"USA\",\n    \"projectName\": \"\",\n    \"trackingCode\": \"\",\n    \"internalComments\": \"\",\n    \"productTotal\": 1096.0000,\n    \"freightTotal\": 10.0000,\n    \"freightDescription\": \"FEDEX\",\n    \"total\": 1101.0000,\n    \"taxStatus\": \"Exempt\",\n    \"taxRate\": 0.0,\n    \"customFields\": {\n      \"orders_1000\": \"John Hazel\", // INPUT BY\n      \"orders_1001\": \"11/22/2024\", // SHIP BY (Date)\n      \"orders_1002\": 100.00 // Freight Cost\n    },\n    \"isVoid\": false,\n    \"deliveryInstructions\": \"Leave at the door, beware the dog.\",\n    \"status\": \"OPEN\",\n    \"stage\": \"New\",\n    \"lineItems\": [\n      {\n        \"code\": \"Ib/500/Syn/Bl/Bar\"\n      }\n    ]\n  }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://api.cin7.com/api/v1/SalesOrders"
+							},
+							"response": []
+						},
+						{
 							"name": "Create Sales Order Minimum Fields",
 							"id": "6b4a3435-4dfa-4fc0-8b01-60b42d8363ae",
 							"protocolProfileBehavior": {
@@ -1522,6 +1544,67 @@
 								}
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Quote",
+					"id": "0597c207-989f-4e64-aa6f-4a8855e2668b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_API_TOKEN",
+								"description": "Replace with your actual API token"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"firstName\": \"Ryan\",\n    \"lastName\": \"Linner\",\n    \"company\": \"Hideout\",\n    \"email\": \"rlinner8@gmail.com\",\n    \"phone\": \"+19723109354\",\n    \"isApproved\": true,\n    \n    \"billingFirstName\": \"Ryan\",\n    \"billingLastName\": \"Linner\",\n    \"billingCompany\": \"Hideout\",\n    \"billingAddress1\": \"1 Blachley Road\",\n    \"billingCity\": \"Stamford\",\n    \"billingState\": \"CT\",\n    \"billingPostalCode\": \"06902\",\n    \"billingCountry\": \"United States\",\n    \n    \"deliveryFirstName\": \"Ryan\",\n    \"deliveryLastName\": \"Linner\",\n    \"deliveryCompany\": \"Hideout\",\n    \"deliveryAddress1\": \"40 Heights Road\",\n    \"deliveryAddress2\": \"216\",\n    \"deliveryCity\": \"Darien\",\n    \"deliveryState\": \"CT\",\n    \"deliveryPostalCode\": \"06820\",\n    \"deliveryCountry\": \"US\",\n    \n    \"internalComments\": \"Outdoor social wellness club at prominent sports complex Chelsea Piers Stamford CT (30 miles outside NYC) adjacent to NBC Sports HQ. Chelsea Piers has 5 other locations in Manhattan & Brooklyn. This is a proof of concept for 1) Chelsea Piers to consider investing in their own and 2) separately for us to raise and do a big buildout for permanent B&M club. Potential investors/advisors include founders of nearby Connecticut based companies: Rhone, Athletic Brewing, Kane. We'll be experimenting with our own IP of 'mental workouts' where we do mindset training exercises in the cold plunges and sauna. We could also explore a brand partnership to make this an ongoing activation with content & signage on-site! Food for thought.\",\n    \n    \"status\": \"DRAFT\",\n    \"stage\": \"New\",\n    \"probability\": 50.0,\n    \"expectedOrderDate\": \"2025-06-21T00:00:00\",\n    \n    \"lineItems\": [\n      {\n        \"qty\": 4.0,\n        \"name\": \"Ice Barrel 500\",\n        \"code\": \"ICE-BARREL-500\",\n        \"description\": \"Ice Barrel 500 (barrel only)\",\n        \"lineComments\": \"Standard barrel only configuration\"\n      }\n    ]\n  }\n]"
+						},
+						"url": {
+							"raw": "https://api.cin7.com/api/v1/Quotes?loadboms=false",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cin7",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"Quotes"
+							],
+							"query": [
+								{
+									"key": "loadboms",
+									"value": "false"
+								}
+							]
+						},
+						"description": "Creates a new quote in Cin7 Omni for Ryan Linner from Hideout"
+					},
+					"response": []
+				},
+				{
+					"name": "New request",
+					"id": "5bc5141a-6192-45dc-88e8-a5857594d56d",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": ""
 					},
 					"response": []
 				}
